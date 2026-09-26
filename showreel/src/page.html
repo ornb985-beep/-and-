@@ -1,0 +1,83 @@
+<title>成交方程式</title>
+<meta name="description" content="主播训练体系 v1.0：动态影片、分阶段教学动画与训练文档">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap">
+<style>
+{{FONTS_CSS}}
+{{REEL_CSS}}
+{{PAGE_CSS}}
+</style>
+
+<div class="page">
+  <header class="top">
+    <a class="brand" href="#top"><span class="mk">成交方程式</span><span class="en">THE CLOSING EQUATION</span></a>
+    <nav aria-label="页面导航">
+      <a href="#player">影片</a>
+      <a href="#handbook">训练体系</a>
+      <a href="#s13">经济价值</a>
+      <a href="#kb">知识库</a>
+    </nav>
+  </header>
+
+  <section class="intro" id="top">
+    <p class="eyebrow">主播训练体系 v1.0 · 动态影片 · 分阶段教学 · 训练文档</p>
+    <h1>讲到你自己都想买，<br>你就讲对了。</h1>
+    <p class="lede">这套体系从公司三次真实失败里长出来。完整版影片讲全貌；十节分阶段动画，一课只教一件事；投资人版只算经济账。所有主播数据来自公司自己的复盘记录，所有市场数字都有出处。</p>
+  </section>
+
+  <section id="player" class="player" aria-label="影片播放器">
+    <div class="screen" id="screen">
+      {{STAGE}}
+      <button id="bigplay" class="bigplay" aria-label="播放"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></button>
+    </div>
+    <div class="ctl">
+      <button id="pp" class="btn primary" aria-label="播放">播放</button>
+      <span id="tc" class="tc">00:00 / 00:00</span>
+      <div id="scrub" class="scrub" tabindex="0" role="slider" aria-label="播放进度"><div class="track"><div class="fill"></div><div class="marks"></div><div class="knob"></div></div></div>
+      <button id="snd" class="btn" aria-pressed="true">声音：开</button>
+      <button id="spd" class="btn" aria-label="播放速度">1×</button>
+      <button id="fs" class="btn">全屏</button>
+    </div>
+    <div class="nowrow"><span class="lbl">正在播放</span><span id="nowtitle" class="now"></span><span class="hint">手机上横屏全屏看更清楚 · 空格键播放/暂停</span></div>
+    <div id="reels" class="reels" aria-label="选择影片"></div>
+    <div id="chapters" class="chapters" aria-label="章节"></div>
+  </section>
+
+  <section class="doors" aria-label="三个入口">
+    <button class="door" data-reel="l0">
+      <span class="dk">给主播</span>
+      <span class="dt">从第 0 课开始</span>
+      <span class="dd">十节课，一课只练一件事。每课结尾都有出关标准。</span>
+    </button>
+    <button class="door" data-reel="investor">
+      <span class="dk">给投资人</span>
+      <span class="dt">90 秒看懂经济账</span>
+      <span class="dd">市场、真实数据、杠杆推算和诚实边界。</span>
+    </button>
+    <a class="door" id="kb" href="{{KB_URL}}" target="_blank" rel="noopener">
+      <span class="dk">给团队</span>
+      <span class="dt">主播知识库</span>
+      <span class="dd">按 Karpathy LLM Wiki 方法整理，所有概念连成一张可点的图。</span>
+    </a>
+  </section>
+
+  <article id="handbook" class="handbook">
+    <p class="eyebrow">训练文档</p>
+    <h2 class="hb-title">成交方程式 · 主播训练体系 v1.0</h2>
+    {{HANDBOOK}}
+  </article>
+
+  <footer class="foot">
+    <p>成交方程式 · 主播训练体系 v1.0 · 2026。影片、字体与动画逐帧由同一套代码生成，网页播放和 MP4 完全一致。</p>
+  </footer>
+</div>
+{{SCRIPTS}}
+<script>
+document.querySelectorAll('.door[data-reel]').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var tab = document.querySelector('#reels button[data-id="' + b.dataset.reel + '"]');
+    if (tab) { tab.click(); document.getElementById('player').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+</script>

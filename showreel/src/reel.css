@@ -1,0 +1,179 @@
+/* ============================================================
+   成交方程式 · Showreel — stage styles (1920×1080 design space)
+   ============================================================ */
+:root {
+  --ink: #0A0C14;
+  --ink-2: #11141F;
+  --ivory: #F3EEE4;
+  --mute: #A3A0AE;
+  --dim: #5F5D6D;
+  --line: rgba(216, 188, 128, .28);
+  --gold: #D8BC80;
+  --gold-dim: #8C7A52;
+  --need: #FF6A55;
+  --value: #FFB443;
+  --perk: #2FD9B0;
+  --trust: #5B85FF;
+  --scarce: #AE7BFF;
+  --alarm: #FF5A67;
+}
+
+#stage {
+  position: absolute; left: 0; top: 0;
+  width: 1920px; height: 1080px;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--ivory);
+  transform-origin: 0 0;
+  font-family: "ReelSans", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+  contain: strict;
+  user-select: none;
+}
+#fx { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+#scenes, #hud { position: absolute; inset: 0; }
+.scene { position: absolute; inset: 0; visibility: hidden; opacity: 0; }
+.a { position: absolute; white-space: nowrap; }
+.w { white-space: normal; }
+.ch { display: inline-block; white-space: pre; }
+.ctr { text-align: center; }
+
+.disp { font-family: "ReelSerif", "Noto Serif SC", "Songti SC", serif; font-weight: 900; letter-spacing: .02em; line-height: 1.08; }
+.sans { font-family: "ReelSans", "Noto Sans SC", sans-serif; font-weight: 400; }
+.sans7 { font-family: "ReelSans", "Noto Sans SC", sans-serif; font-weight: 700; }
+.bod { font-family: "ReelBodoni", "ReelSerif", "Bodoni Moda", "Didot", serif; font-style: italic; font-weight: 500; font-variant-numeric: lining-nums; }
+.bod7 { font-family: "ReelBodoni", "ReelSerif", "Bodoni Moda", "Didot", serif; font-style: italic; font-weight: 700; font-variant-numeric: lining-nums; }
+.mono { font-family: "ReelMono", "ReelSans", "DM Mono", ui-monospace, monospace; letter-spacing: .08em; }
+
+.c-gold { color: var(--gold); }
+.c-mute { color: var(--mute); }
+.c-dim { color: var(--dim); }
+.c-need { color: var(--need); }
+.c-value { color: var(--value); }
+.c-perk { color: var(--perk); }
+.c-trust { color: var(--trust); }
+.c-scarce { color: var(--scarce); }
+.c-alarm { color: var(--alarm); }
+.op { font-family: "ReelSans", sans-serif; font-style: normal; font-weight: 700; }
+.bnum { font-family: "ReelBodoni", "ReelSerif", serif; font-style: italic; font-weight: 500; font-variant-numeric: lining-nums; }
+
+/* ---------- HUD ---------- */
+.hud-brand { left: 64px; top: 42px; font-size: 22px; }
+.hud-brand .mono { font-size: 13px; color: var(--mute); margin-left: 14px; letter-spacing: .24em; }
+.hud-ch { right: 64px; top: 44px; font-size: 18px; text-align: right; }
+.hud-ch .mono { color: var(--gold); font-size: 15px; margin-right: 14px; }
+.hud-tc { left: 64px; bottom: 40px; font-size: 15px; color: var(--mute); }
+.hud-tag { right: 64px; bottom: 40px; font-size: 13px; color: var(--dim); letter-spacing: .26em; }
+.hud-bar { position: absolute; left: 64px; right: 64px; bottom: 26px; height: 2px; background: rgba(243, 238, 228, .08); }
+.hud-bar i { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: var(--gold); }
+.hud-ticks b { position: absolute; top: -3px; width: 1px; height: 8px; background: rgba(243, 238, 228, .25); }
+
+/* ---------- chapter slate ---------- */
+.slate { left: 120px; top: 118px; display: flex; align-items: baseline; gap: 22px; }
+.slate .no { font-family: "ReelBodoni", "ReelSerif", serif; font-style: italic; font-weight: 500; font-size: 76px; color: var(--gold); line-height: 1; }
+.slate .nm { font-family: "ReelSerif", serif; font-weight: 900; font-size: 38px; letter-spacing: .08em; }
+.slate .en { font-family: "ReelMono", "ReelSans", monospace; font-size: 14px; color: var(--mute); letter-spacing: .3em; }
+.rule { position: absolute; height: 1px; background: var(--line); transform-origin: 0 50%; }
+
+/* ---------- generic pieces ---------- */
+.chip {
+  position: absolute; white-space: nowrap;
+  padding: 10px 20px; border-radius: 999px;
+  border: 1px solid rgba(243, 238, 228, .18);
+  background: rgba(17, 20, 31, .72);
+  font-size: 26px; color: var(--ivory);
+}
+.chip .mono { font-size: 15px; color: var(--gold); margin-right: 10px; }
+.src { font-family: "ReelMono", "ReelSans", monospace; font-size: 15px; color: var(--dim); letter-spacing: .1em; }
+.so {
+  font-family: "ReelSerif", serif; font-weight: 900; font-size: 44px; color: var(--gold);
+  display: flex; align-items: center; gap: 22px;
+}
+.so .arr { font-family: "ReelMono", "ReelSans", monospace; font-weight: 400; font-size: 30px; color: var(--gold); }
+.card {
+  position: absolute;
+  border: 1px solid rgba(243, 238, 228, .14);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(24, 28, 43, .82), rgba(12, 14, 22, .82));
+}
+.tag {
+  position: absolute; white-space: nowrap;
+  font-family: "ReelMono", "ReelSans", monospace; font-size: 14px; letter-spacing: .18em;
+  color: var(--mute); border: 1px solid rgba(243, 238, 228, .16); border-radius: 6px; padding: 6px 12px;
+}
+
+/* ---------- gates (C4) ---------- */
+.gate { width: 236px; height: 548px; top: 312px; }
+.gate .gn { position: absolute; left: 24px; top: 22px; font-family: "ReelBodoni", "ReelSerif", serif; font-style: italic; font-size: 44px; color: var(--dim); }
+.gate .gt { position: absolute; left: 24px; top: 84px; font-family: "ReelSerif", serif; font-weight: 900; font-size: 64px; color: var(--dim); letter-spacing: .06em; }
+.gate .gq { position: absolute; left: 24px; right: 20px; top: 190px; font-size: 26px; line-height: 1.45; color: var(--ivory); white-space: normal; }
+.gate .gl { position: absolute; left: 24px; top: 300px; font-family: "ReelMono", "ReelSans", monospace; font-size: 13px; letter-spacing: .2em; color: var(--mute); }
+.gate .ga { position: absolute; left: 24px; right: 18px; top: 326px; font-size: 22px; line-height: 1.5; color: var(--ivory); white-space: normal; }
+.gate .gw { position: absolute; left: 24px; top: 448px; font-family: "ReelMono", "ReelSans", monospace; font-size: 13px; letter-spacing: .2em; color: var(--mute); }
+.gate .gv { position: absolute; left: 24px; right: 18px; top: 474px; font-size: 22px; line-height: 1.45; white-space: normal; }
+.gate .glow { position: absolute; inset: -1px; border-radius: 18px; border: 2px solid currentColor; opacity: 0; }
+
+/* ---------- steps (C5) ---------- */
+.step { left: 1010px; width: 790px; height: 92px; }
+.step .sn { position: absolute; left: 0; top: 14px; font-family: "ReelBodoni", "ReelSerif", serif; font-style: italic; font-size: 46px; color: var(--dim); width: 60px; }
+.step .st { position: absolute; left: 70px; top: 12px; font-family: "ReelSerif", serif; font-weight: 900; font-size: 48px; color: var(--dim); }
+.step .sd { position: absolute; left: 228px; top: 26px; font-size: 26px; color: var(--mute); }
+.step .sg { position: absolute; left: 70px; top: 76px; height: 3px; width: 0; border-radius: 2px; }
+.caption {
+  left: 150px; top: 872px; width: 760px; min-height: 120px;
+  padding: 22px 28px; border-radius: 16px; white-space: normal;
+  background: rgba(8, 9, 15, .78); border: 1px solid rgba(243, 238, 228, .14);
+  font-size: 30px; line-height: 1.5;
+}
+.caption .who { font-family: "ReelMono", "ReelSans", monospace; font-size: 14px; letter-spacing: .2em; color: var(--gold); display: block; margin-bottom: 8px; }
+
+/* ---------- phone (C6) ---------- */
+.phone {
+  left: 150px; top: 168px; width: 452px; height: 804px; border-radius: 54px;
+  background: #05060A; border: 2px solid rgba(243, 238, 228, .22);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .55), inset 0 0 0 10px #0B0D14;
+  overflow: hidden;
+}
+.phone .scr {
+  position: absolute; inset: 12px; border-radius: 44px; overflow: hidden;
+  background: radial-gradient(120% 70% at 50% 38%, #1d2440 0%, #0e1222 55%, #07080d 100%);
+}
+.phone .pill {
+  position: absolute; top: 26px; left: 22px; padding: 8px 16px 8px 12px; border-radius: 999px;
+  background: rgba(0, 0, 0, .45); font-size: 19px; display: flex; align-items: center; gap: 10px;
+}
+.phone .pill i { width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), #7e6a43); display: inline-block; }
+.phone .live { position: absolute; top: 30px; right: 22px; font-family: "ReelMono", "ReelSans", monospace; font-size: 15px; letter-spacing: .12em; padding: 6px 10px; border-radius: 6px; background: var(--alarm); color: #fff; }
+.phone .online { position: absolute; top: 80px; right: 22px; font-family: "ReelMono", "ReelSans", monospace; font-size: 17px; color: var(--ivory); background: rgba(0,0,0,.45); padding: 6px 12px; border-radius: 999px; }
+.phone .cmts { position: absolute; left: 18px; bottom: 150px; width: 300px; height: 260px; overflow: hidden; }
+.phone .cmt { position: absolute; left: 0; font-size: 19px; padding: 7px 14px; border-radius: 16px; background: rgba(0, 0, 0, .42); white-space: nowrap; }
+.phone .cmt b { color: var(--gold); font-weight: 400; margin-right: 8px; }
+.phone .pcard {
+  position: absolute; left: 18px; right: 18px; bottom: 26px; height: 104px; border-radius: 18px;
+  background: rgba(243, 238, 228, .96); color: #11141F; display: flex; align-items: center; gap: 16px; padding: 0 16px;
+}
+.phone .pcard .th { width: 76px; height: 76px; border-radius: 12px; background: radial-gradient(circle at 40% 35%, #9fd8ff 0%, #3a67d8 45%, #13204a 100%); flex: none; }
+.phone .pcard .pn { font-size: 20px; font-weight: 700; font-family: "ReelSans", "Noto Sans SC", sans-serif; }
+.phone .pcard .pp { font-family: "ReelBodoni", "ReelSerif", serif; font-style: italic; font-size: 30px; color: #B0402F; }
+.phone .pcard .bt { margin-left: auto; padding: 12px 16px; border-radius: 12px; background: #FF5A45; color: #fff; font-size: 20px; font-weight: 700; font-family: "ReelSans", "Noto Sans SC", sans-serif; }
+.phone .toast { position: absolute; left: 50%; top: 150px; transform: translateX(-50%); padding: 10px 20px; border-radius: 999px; background: rgba(47, 217, 176, .92); color: #06120e; font-size: 20px; font-weight: 700; font-family: "ReelSans", "Noto Sans SC", sans-serif; white-space: nowrap; }
+
+/* ---------- misc ---------- */
+.pillar { width: 380px; height: 300px; top: 560px; }
+.pillar .pk { position: absolute; left: 30px; top: 26px; font-family: "ReelSerif", serif; font-weight: 900; font-size: 72px; }
+.pillar .pd { position: absolute; left: 30px; right: 26px; top: 128px; font-size: 25px; line-height: 1.55; white-space: normal; color: var(--ivory); }
+.pillar .pr { position: absolute; left: 30px; right: 26px; bottom: 22px; font-family: "ReelMono", "ReelSans", monospace; font-size: 14px; letter-spacing: .12em; color: var(--mute); white-space: normal; }
+.quad { width: 470px; height: 250px; }
+.quad .qt { position: absolute; left: 28px; top: 24px; font-family: "ReelSerif", serif; font-weight: 900; font-size: 44px; color: var(--ivory); }
+.quad .qd { position: absolute; left: 28px; right: 22px; top: 96px; font-size: 23px; line-height: 1.55; color: var(--mute); white-space: normal; }
+.li { font-size: 32px; display: flex; align-items: center; gap: 18px; }
+.li .dot { width: 12px; height: 12px; border-radius: 50%; flex: none; }
+.bignum { font-family: "ReelBodoni", "ReelSerif", serif; font-style: italic; font-weight: 500; line-height: .9; font-variant-numeric: lining-nums; }
+.flow { display: flex; align-items: center; gap: 0; }
+.flow .fn {
+  padding: 16px 22px; border: 1px solid rgba(243, 238, 228, .18); border-radius: 14px; background: rgba(17, 20, 31, .8);
+  font-size: 26px; white-space: nowrap;
+}
+.flow .fa { width: 46px; text-align: center; font-family: "ReelMono", "ReelSans", monospace; color: var(--gold); font-size: 22px; }
