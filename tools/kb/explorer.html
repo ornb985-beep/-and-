@@ -43,13 +43,15 @@ a{color:var(--gold-2)}
 #qres .qp{font:11px/1.4 var(--mono);color:var(--ink-3)}
 #qres .ql{grid-column:2/4;font-size:12px;color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .dot{width:9px;height:9px;border-radius:50%;background:var(--c);display:inline-block;flex:0 0 auto}
-.health{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;margin-left:auto}
+.health{display:flex;gap:8px;flex-wrap:nowrap;flex:0 0 auto;justify-content:flex-end;margin-left:auto}
 .pill{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:13px;border:1px solid var(--line-2);font:500 11.5px/1 var(--mono);color:var(--ink-2);white-space:nowrap;font-variant-numeric:tabular-nums}
 .pill b{color:var(--ink);font-weight:500}
 .pill.ok{border-color:rgba(47,217,176,.35);color:var(--ok)}
 .pill.ok b{color:var(--ok)}
 .reel{flex:0 0 auto;height:30px;display:inline-flex;align-items:center;padding:0 13px;border-radius:15px;background:var(--gold);color:#17140D;font-weight:500;font-size:13px;text-decoration:none}
 .reel:hover{background:var(--gold-2)}
+.reel.alt{background:none;color:var(--gold);border:1px solid rgba(216,188,128,.45)}
+.reel.alt:hover{background:rgba(216,188,128,.1)}
 
 /* ---------------- rail */
 .rail{grid-area:rail;overflow:auto;padding:16px 14px 28px;border-right:1px solid var(--line);background:var(--panel);display:flex;flex-direction:column;gap:22px}
@@ -164,6 +166,9 @@ a.wl:hover{border-bottom-color:var(--gold-2);background:var(--gold-wash)}
 .more{border:0;background:none;color:var(--gold);font-size:12.5px;padding:3px 4px}
 
 /* ---------------- narrower */
+@media (min-width:761px) and (max-width:1400px){.health .pill:nth-child(2),.health .pill:nth-child(3){display:none}}
+@media (min-width:761px) and (max-width:1100px){.health .pill:nth-child(1){display:none}}
+@media (min-width:761px) and (max-width:960px){.health{display:none}}
 @media (max-width:1180px){
   .app{grid-template-columns:minmax(0,1fr) minmax(330px,420px);grid-template-rows:auto auto minmax(0,1fr);grid-template-areas:"top top" "rail rail" "stage reader"}
   .rail{flex-direction:row;gap:26px;overflow-x:auto;overflow-y:hidden;padding:12px 18px;border-right:0;border-bottom:1px solid var(--line)}
@@ -180,8 +185,9 @@ a.wl:hover{border-bottom-color:var(--gold-2);background:var(--gold-wash)}
   .app{display:block;height:auto}
   .top{flex-wrap:wrap;gap:10px 14px;padding:12px 16px}
   .search{order:3;flex-basis:100%;max-width:none}
-  .health{margin-left:0;justify-content:flex-start;order:4}
-  .reel{order:2;margin-left:auto}
+  .health{margin-left:0;justify-content:flex-start;order:4;flex-wrap:wrap;flex:1 1 100%}
+  .reel{order:2}
+  .reel.alt{margin-left:auto}
   .rail{padding:10px 16px;gap:22px}
   .stage{height:60vh;height:60svh;margin:0 16px;border:1px solid var(--line);border-radius:14px}
   .thesis{max-width:220px}
@@ -210,6 +216,7 @@ a.wl:hover{border-bottom-color:var(--gold-2);background:var(--gold-wash)}
       <ul id="qres" hidden></ul>
     </div>
     <div class="health" id="health"></div>
+    <a class="reel alt" href="{{MARKET_URL}}" target="_blank" rel="noopener">市场地图 ↗</a>
     <a class="reel" href="{{REEL_URL}}" target="_blank" rel="noopener">影片与课件 ↗</a>
   </header>
 
@@ -541,6 +548,7 @@ layersEl.addEventListener('click', e => {
 const TOURS = [
   {id: 'trainee', name: '学员路线', sub: '第 0 课到第 9 课，按顺序学', ids: docs.filter(d => d.type === 'lesson').sort((a, b) => (a.fm.lesson_no ?? parseInt(a.t.slice(1))) - (b.fm.lesson_no ?? parseInt(b.t.slice(1)))).map(d => d.t)},
   {id: 'investor', name: '投资人路线', sub: '市场有多大、一笔账怎么算、价值从哪来', ids: ['直播电商市场规模', '市场规模的两个口径', '主播供给与收入', '金银珠宝零售', '一笔真实的账', '经济价值推算', '失败2-19场4场达标', CENTER]},
+  {id: 'market', name: '市场路线', sub: '我们在哪个品类、谁在买、谁在抢、红线在哪', ids: ['饰品市场与竞争-总览', '时尚饰品', '五个市场口径', '市场范围估算', '饰品消费偏好', '价格带地图', '竞品分层', '金色仿品红线', '仿宝石的信任', 'AI竞品分析流程']},
   {id: 'method', name: '知识库怎么来的', sub: '从一段口述原话，追到课程和体检', ids: ['训练思路-口述-2026-09-26', '摘要-训练思路口述', '逼单四要素', '第4课 逼单四要素', CENTER, '体检报告-2026-09-26', 'AGENTS']}];
 TOURS.forEach(t => { t.ids = t.ids.map(x => byT(x)).filter(Boolean).map(d => d.id); });
 TOURS[0].ids.sort((a, b) => parseInt(docs[a].t.slice(1)) - parseInt(docs[b].t.slice(1)));

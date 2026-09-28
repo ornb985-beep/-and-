@@ -1,0 +1,572 @@
+<title>时尚饰品市场地图</title>
+<meta name="description" content="仿宝石设计款饰品的市场与竞争分析：品类口径、市场范围估算、人群、竞品价格带、金价风向、平台红线和 AI 竞品分析流程。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+:root{
+  --bg:#F2F1EE; --surface:#FBFAF8; --surface-2:#F6F4F0; --line:#E3E0D8; --line-2:#D3CFC5;
+  --ink:#1C1A21; --ink-2:#4A4652; --ink-3:#6E6976;
+  --accent:#8C6420; --mark:#A8741A; --wash:rgba(168,116,26,.12); --neutral:#B6B0A6; --neutral-2:#D6D1C8;
+  --crit:#C23434; --crit-wash:rgba(208,59,59,.08); --ok:#1E7A3C;
+  --sans:"Noto Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --serif:"Noto Serif SC","Songti SC","STSong",Georgia,serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#121117; --surface:#1A1920; --surface-2:#211F28; --line:#2C2A33; --line-2:#3A3742;
+    --ink:#EEEAE2; --ink-2:#BDB7C4; --ink-3:#958F9E;
+    --accent:#D8BC80; --mark:#D8B46A; --wash:rgba(216,188,128,.14); --neutral:#5A5663; --neutral-2:#3A3742;
+    --crit:#F07A7A; --crit-wash:rgba(240,122,122,.10); --ok:#4CC27A;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#121117; --surface:#1A1920; --surface-2:#211F28; --line:#2C2A33; --line-2:#3A3742;
+  --ink:#EEEAE2; --ink-2:#BDB7C4; --ink-3:#958F9E;
+  --accent:#D8BC80; --mark:#D8B46A; --wash:rgba(216,188,128,.14); --neutral:#5A5663; --neutral-2:#3A3742;
+  --crit:#F07A7A; --crit-wash:rgba(240,122,122,.10); --ok:#4CC27A;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.75 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--mark);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:20px;padding-block:32px 72px;display:flex;flex-direction:column;gap:44px}
+header{display:flex;flex-direction:column;gap:14px}
+.eyebrow{font-size:12.5px;letter-spacing:.12em;color:var(--accent);font-weight:500}
+h1{margin:0;font:700 40px/1.2 var(--serif);letter-spacing:.02em;text-wrap:balance}
+.lead{margin:0;max-width:62ch;font-size:17px;line-height:1.8;color:var(--ink)}
+.links{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;height:38px;padding:0 16px;border-radius:10px;border:1px solid var(--line-2);background:var(--surface);text-decoration:none;color:var(--ink);font-weight:500;font-size:14px}
+.btn:hover{border-color:var(--mark)}
+.btn.primary{background:var(--mark);border-color:var(--mark);color:#17120A}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.tile .v{font-size:30px;font-weight:700;line-height:1.15;color:var(--ink)}
+.tile .v small{font-size:15px;font-weight:500;color:var(--ink-2);margin-left:2px}
+.tile .l{font-size:13px;color:var(--ink-2);line-height:1.55}
+.tile .s{font-size:11.5px;color:var(--ink-3)}
+section{display:flex;flex-direction:column;gap:16px}
+h2{margin:0;font:700 26px/1.3 var(--serif);text-wrap:balance}
+h3{margin:0;font-size:16px;font-weight:700}
+.kicker{font-size:12px;letter-spacing:.12em;color:var(--ink-3);font-weight:500}
+p{margin:0;max-width:68ch}
+.muted{color:var(--ink-3);font-size:13px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 22px;min-width:0}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:620px}
+th,td{padding:10px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-weight:500;color:var(--ink-3);font-size:12.5px;background:var(--surface-2);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.yes{color:var(--ok);font-weight:500}
+details.tv{margin-top:6px}
+details.tv summary{cursor:pointer;color:var(--ink-2);font-size:13px}
+details.tv .tw{margin-top:10px}
+/* bar rows */
+.bars{display:flex;flex-direction:column;gap:6px}
+.brow{display:grid;grid-template-columns:var(--lw,220px) 1fr;align-items:center;gap:12px;min-height:34px}
+.brow .lb{font-size:13.5px;color:var(--ink);line-height:1.35}
+.brow .lb small{display:block;color:var(--ink-3);font-size:11.5px}
+.brow .bt{position:relative;height:34px}
+.brow .b{position:absolute;left:0;top:50%;height:16px;margin-top:-8px;border-radius:0 4px 4px 0;background:var(--neutral)}
+.brow .b.em{background:var(--mark)}
+.brow .v{position:absolute;top:50%;transform:translateY(-50%);font-size:13px;white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--ink)}
+.brow:hover .b,.brow:focus-visible .b{filter:brightness(1.08)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-3)}
+.legend i{display:inline-block;width:14px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+/* mini multiples */
+.mini h3{font-size:14.5px;margin-bottom:8px}
+.mini .brow{--lw:96px;min-height:26px;gap:8px}
+.mini .brow .lb{font-size:12.5px}
+.mini .brow .bt{height:26px}
+.mini .brow .b{height:12px;margin-top:-6px}
+.mini .brow .v{font-size:12px}
+.mini .so{margin-top:10px;font-size:13px;color:var(--ink-2);line-height:1.6}
+.mini .so b{color:var(--ink)}
+/* price map */
+.pmap{--lw:170px;position:relative}
+.pmap .bg{position:absolute;top:0;bottom:24px;left:calc(var(--lw) + 12px);right:0}
+.pmap .grid{position:absolute;top:0;bottom:0;width:1px;background:var(--line)}
+.pmap .ours{position:absolute;top:0;bottom:0;background:var(--wash);border-left:1px solid var(--mark);border-right:1px solid var(--mark)}
+.pmap .row{position:relative;display:grid;grid-template-columns:var(--lw) 1fr;gap:12px;align-items:center;min-height:40px}
+.pmap .nm{font-size:13.5px;line-height:1.35}
+.pmap .nm small{display:block;color:var(--ink-3);font-size:11.5px}
+.pmap .tr{position:relative;height:40px}
+.pmap .rg{position:absolute;top:50%;height:10px;margin-top:-5px;border-radius:5px;background:var(--neutral)}
+.pmap .rg.em{background:var(--mark)}
+.pmap .rg.fuzzy{background:repeating-linear-gradient(45deg,var(--neutral) 0 4px,transparent 4px 7px);border:1px solid var(--neutral)}
+.pmap .dot{position:absolute;top:50%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--neutral);box-shadow:0 0 0 2px var(--surface)}
+.pmap .pl{position:absolute;top:50%;transform:translateY(-50%);font-size:12px;color:var(--ink-2);white-space:nowrap}
+.pmap .axis{position:relative;height:24px;margin-left:calc(var(--lw) + 12px);font-size:11.5px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.pmap .axis span{position:absolute;transform:translateX(-50%);top:4px;white-space:nowrap}
+.pmap .nm .pv{display:none;color:var(--ink-2)}
+@media (max-width:620px){.pmap .pl,.pmap .axis .minor{display:none}.pmap .nm .pv{display:block}.pmap .row{min-height:58px}.pmap .tr{height:58px}}
+/* columns */
+.cols{display:flex;align-items:flex-end;gap:18px;height:180px;padding-top:24px;border-bottom:1px solid var(--line-2)}
+.col{flex:0 0 56px;position:relative;display:flex;flex-direction:column;justify-content:flex-end;height:100%}
+.col .c{background:var(--neutral);border-radius:4px 4px 0 0}
+.col .c.em{background:var(--mark)}
+.col .cv{position:absolute;left:50%;transform:translateX(-50%);font-size:12.5px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.colx{display:flex;gap:18px;font-size:12px;color:var(--ink-3)}
+.colx span{flex:0 0 56px;text-align:center}
+/* estimator */
+.est{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:22px}
+.ctl{display:flex;flex-direction:column;gap:14px}
+.ctl .it{display:flex;flex-direction:column;gap:4px}
+.ctl .top{display:flex;justify-content:space-between;gap:8px;font-size:13.5px}
+.ctl .top output{font-weight:700;font-variant-numeric:tabular-nums}
+.ctl input[type=range]{width:100%;accent-color:var(--mark)}
+.ctl .note{font-size:11.5px;color:var(--ink-3);line-height:1.5}
+.tag{display:inline-block;margin-left:6px;padding:0 6px;border-radius:6px;font-size:11px;border:1px solid var(--line-2);color:var(--ink-3);vertical-align:1px}
+.tag.src{border-color:color-mix(in srgb,var(--ok) 50%,transparent);color:var(--ok)}
+.seg{display:inline-flex;border:1px solid var(--line-2);border-radius:9px;overflow:hidden}
+.seg label{padding:5px 12px;font-size:13px;cursor:pointer}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg input:checked+span{font-weight:700;color:var(--accent)}
+.funnel .brow{--lw:150px}
+.result{margin-top:10px;padding:14px 16px;border-radius:12px;background:var(--wash)}
+.result .big{font-size:28px;font-weight:700;line-height:1.2}
+.result p{font-size:13.5px;color:var(--ink-2)}
+.bu{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:6px}
+.bu label{display:flex;flex-direction:column;gap:4px;font-size:12.5px;color:var(--ink-2)}
+.bu input{height:34px;padding:0 10px;border-radius:8px;border:1px solid var(--line-2);background:var(--surface-2);font-variant-numeric:tabular-nums}
+/* competitor tiers */
+.tier{display:flex;flex-direction:column;gap:6px}
+.tier .k{font-size:12px;color:var(--ink-3);letter-spacing:.06em}
+.tier h3{font-size:16px}
+.tier p{font-size:13.5px;color:var(--ink-2)}
+.trend{font-size:12px;font-weight:500}
+.trend.up{color:var(--ok)} .trend.down{color:var(--crit)}
+/* red lines */
+.red{border-color:color-mix(in srgb,var(--crit) 35%,var(--line));background:linear-gradient(var(--crit-wash),var(--crit-wash)),var(--surface)}
+.red .k{color:var(--crit);font-size:12px;font-weight:700;letter-spacing:.06em}
+blockquote{margin:8px 0;padding:8px 12px;border-left:3px solid var(--crit);background:var(--surface);font-size:13.5px;color:var(--ink)}
+.eg{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:13.5px}
+.eg .y{color:var(--ok);font-weight:700}.eg .n{color:var(--crit);font-weight:700}
+.check{display:flex;flex-direction:column;gap:8px}
+.check label{display:flex;gap:10px;align-items:flex-start;font-size:14px;cursor:pointer}
+.check input{margin-top:5px;width:16px;height:16px;accent-color:var(--mark);flex:0 0 auto}
+/* opportunities & flow */
+.opps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.opp{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.opp h3{font-size:15.5px;margin-bottom:6px}
+.opp p{font-size:13.5px;color:var(--ink-2)}
+.flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;position:relative}
+.step .n{font-size:12px;color:var(--accent);font-weight:700}
+.step h3{font-size:14.5px;margin:2px 0 4px}
+.step p{font-size:12.5px;color:var(--ink-2);line-height:1.6}
+pre.prompt{margin:0;padding:14px 16px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line);white-space:pre-wrap;font:13px/1.7 var(--sans);color:var(--ink)}
+.copy{align-self:flex-start}
+.src li{font-size:13px;margin:4px 0;color:var(--ink-2)}
+.tip{position:fixed;z-index:20;pointer-events:none;max-width:300px;padding:8px 11px;border-radius:9px;background:var(--surface);border:1px solid var(--line-2);box-shadow:0 8px 22px rgba(0,0,0,.18);font-size:12.5px;line-height:1.55}
+.tip b{display:block;font-size:15px}
+svg text{font-family:var(--sans)}
+.svgc{width:100%;height:auto;display:block}
+@media (max-width:900px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.grid3{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr 1fr}.est{grid-template-columns:1fr}}
+@media (max-width:620px){h1{font-size:30px}.grid2,.grid3,.bu{grid-template-columns:1fr}.brow{--lw:130px}.pmap{--lw:110px}.flow{grid-template-columns:1fr}.wrap{padding-inline:16px}.tile .v{font-size:24px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">仿宝石 / 艺术饰品 · 市场与竞争分析 · 2026 年 9 月</div>
+  <h1>时尚饰品市场地图</h1>
+  <p class="lead">我们卖的仿宝石设计款，在平台上叫「时尚饰品」，在珠宝行业里叫「流行饰品」。零售口径大约 130–180 亿元一年，品牌换得快，平台规则严。机会在讲品、设计和信任，不在「像金子」。</p>
+  <div class="links">
+    <a class="btn primary" href="https://claude.ai/artifact/JzPycXeguTsV2prU1jBmPh" target="_blank" rel="noopener">打开竞品雷达：团队记录 + AI 分析</a>
+    <a class="btn" href="https://claude.ai/artifact/5pmYWe2raA7bJ8A1Kax5F6" target="_blank" rel="noopener">主播知识库图谱</a>
+    <a class="btn" href="https://claude.ai/artifact/SHzYL92cgqLjky17FidRbB" target="_blank" rel="noopener">影片与训练手册</a>
+  </div>
+</header>
+
+<div class="tiles" aria-label="四个关键数字">
+  <div class="tile"><div class="v">130<small>亿元</small></div><div class="l">「流行饰品及其他」一年零售，只占珠宝行业 2%</div><div class="s">中宝协 · 2024</div></div>
+  <div class="tile"><div class="v">8<small>/ 10</small></div><div class="l">抖音双 11 时尚饰品前十里，新上榜的品牌数</div><div class="s">沥金 × 蝉魔方 · 2024</div></div>
+  <div class="tile"><div class="v">1,292<small>元/克</small></div><div class="l">首饰金价，2023 年末约 500 元/克</div><div class="s">周大福挂牌价 · 2026-09-25</div></div>
+  <div class="tile"><div class="v">−71%</div><div class="l">潘多拉中国区销售额，2019 → 2023 年</div><div class="s">公司财报，每日经济新闻 · 2025</div></div>
+</div>
+
+<section id="category">
+  <div class="kicker">品类</div>
+  <h2>我们属于哪个品类</h2>
+  <p>同一件东西，在统计局、行业协会、平台和国家标准里叫法不同。说数字、上商品、写标题之前，先对上号。</p>
+  <div class="tw"><table>
+    <thead><tr><th>在哪里</th><th>叫什么</th><th>我们在不在里面</th></tr></thead>
+    <tbody>
+      <tr><td>国家统计局</td><td>金银珠宝类（限额以上单位），2025 年 3,736 亿元</td><td>不在。以贵金属为主，不单独统计仿宝石饰品</td></tr>
+      <tr><td>中国珠宝玉石首饰行业协会</td><td>流行饰品及其他，2024 年 130 亿元</td><td class="yes">在</td></tr>
+      <tr><td>抖音电商</td><td>时尚饰品：非天然宝玉石、非贵金属、价格较低的银</td><td class="yes">在</td></tr>
+      <tr><td>视频号（橱窗）</td><td>珠宝首饰 › 时尚饰品，珠宝首饰类目定向准入</td><td class="yes">在</td></tr>
+      <tr><td>国家标准 GB/T 16552</td><td>仿宝石、人工宝石：名称必须写清材料</td><td>管我们的商品名称怎么写</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="size">
+  <div class="kicker">规模</div>
+  <h2>市场有多大：先分口径</h2>
+  <p>五个常见数字差了六十倍。它们量的不是同一件事：有的是零售额，有的是工厂产值，有的把黄金也算了进去。前两个才是我们这个品类的零售口径。</p>
+  <div class="card">
+    <div class="bars" id="scope-bars" style="--lw:230px"></div>
+    <div class="legend" style="margin-top:12px"><span><i style="background:var(--mark)"></i>我们这个品类的零售口径</span><span><i style="background:var(--neutral)"></i>更宽的口径，不能直接拿来当我们的市场</span></div>
+    <details class="tv"><summary>看表格和出处</summary><div class="tw"><table>
+      <thead><tr><th>口径</th><th>数字</th><th>年份</th><th>算的是什么</th><th>出处</th></tr></thead>
+      <tbody>
+        <tr><td>流行饰品及其他</td><td class="num">130 亿元</td><td>2024</td><td>珠宝行业零售，占全行业 2%</td><td>中宝协《2024 年中国珠宝行业发展报告》</td></tr>
+        <tr><td>中国人造首饰</td><td class="num">25.5 亿美元（约 181 亿元，推算）</td><td>2025</td><td>海外咨询估算，方法未公开；耳饰占 45%，线上占 46%</td><td>Deep Market Insights</td></tr>
+        <tr><td>义乌饰品产业带</td><td class="num">超 1,000 亿元</td><td>2024</td><td>工厂产值，含出口、发饰等全部饰品配件，占全国 30% 以上</td><td>浙江新闻 2025-04-29</td></tr>
+        <tr><td>金银珠宝类零售</td><td class="num">3,736 亿元</td><td>2025</td><td>限额以上单位，以贵金属为主</td><td>国家统计局</td></tr>
+        <tr><td>珠宝玉石首饰产业</td><td class="num">7,788 亿元</td><td>2024</td><td>全行业，黄金占 73%</td><td>中宝协</td></tr>
+      </tbody>
+    </table></div></details>
+  </div>
+</section>
+
+<section id="estimate">
+  <div class="kicker">估算</div>
+  <h2>我们够得着的范围有多大</h2>
+  <p>从大数字一层层往下切，再用自己的主播数据从下往上算，两边对照。带「出处」的比例来自公开资料，带「假设」的请换成你们后台的真实数据。结果都是推算。</p>
+  <div class="card est">
+    <div class="ctl" id="est-ctl">
+      <div class="it"><div class="top"><span>底数：零售口径</span></div>
+        <div class="seg" role="radiogroup" aria-label="选择底数">
+          <label><input type="radio" name="base" id="base-130" value="130" checked><span>中宝协 130 亿元</span></label>
+          <label><input type="radio" name="base" id="base-181" value="181"><span>海外咨询 约 181 亿元</span></label>
+        </div></div>
+      <div class="it"><div class="top"><label for="r-online">线上占比<span class="tag src">出处</span></label><output id="o-online"></output></div>
+        <input type="range" id="r-online" min="10" max="90" step="1" value="46"><div class="note">海外咨询：线上 11.6 亿美元 ÷ 全部 25.5 亿美元 ≈ 46%</div></div>
+      <div class="it"><div class="top"><label for="r-live">线上里直播的比例<span class="tag">假设</span></label><output id="o-live"></output></div>
+        <input type="range" id="r-live" min="5" max="80" step="1" value="28"><div class="note">参考：艾媒 2025 调查里 27.86% 的人在直播间买过饰品（多选，不等于销售额占比）</div></div>
+      <div class="it"><div class="top"><label for="r-sph">直播里视频号的比例<span class="tag src">出处</span></label><output id="o-sph"></output></div>
+        <input type="range" id="r-sph" min="2" max="40" step="0.1" value="8.6"><div class="note">网经社 2025：视频号约 6,000 亿 ÷ 直播电商 69,461 亿 ≈ 8.6%（全品类，饰品可能不同）</div></div>
+      <div class="it"><div class="top"><label for="r-band">100–300 元价位的比例<span class="tag">假设</span></label><output id="o-band"></output></div>
+        <input type="range" id="r-band" min="5" max="80" step="1" value="40"><div class="note">公开资料里没有这个数，请用后台成交分布替换</div></div>
+    </div>
+    <div>
+      <div class="funnel bars" id="funnel"></div>
+      <div class="result" id="res"></div>
+      <h3 style="margin-top:18px">从下往上算</h3>
+      <div class="bu">
+        <label for="b-anchors">主播人数<input id="b-anchors" type="number" min="1" max="500" value="10"></label>
+        <label for="b-shows">每人每月场次<input id="b-shows" type="number" min="1" max="62" value="26"></label>
+        <label for="b-gmv">每场 GMV（元）<input id="b-gmv" type="number" min="0" step="100" value="2003"></label>
+      </div>
+      <p class="muted" style="margin-top:6px">每场 2,003 元是主播A 19 场的平均数（只有一个人的数据）。</p>
+      <div class="result" id="res2"></div>
+    </div>
+  </div>
+</section>
+
+<section id="buyers">
+  <div class="kicker">人群</div>
+  <h2>谁在买，她看重什么</h2>
+  <p>下面六组数字来自艾媒 2025 年的饰品消费调查（多选题，样本包含买黄金的人）。我们的核心客群是 40–49 岁女性；视频号购买用户里女性占 78%（微信官方，2023）。</p>
+  <div class="grid3" id="minis"></div>
+</section>
+
+<section id="rivals">
+  <div class="kicker">竞争</div>
+  <h2>谁在抢她的钱</h2>
+  <p>把公开资料里有价格的竞品放到一张价格带上。金色竖带是我们的 100–300 元。</p>
+  <div class="card">
+    <div class="pmap" id="pmap"></div>
+    <div class="legend" style="margin-top:10px"><span><i style="background:var(--wash);border:1px solid var(--mark)"></i>我们 100–300 元</span><span><i style="background:var(--neutral)"></i>竞品价格（点：只有一个价格）</span><span><i style="background:repeating-linear-gradient(45deg,var(--neutral) 0 3px,transparent 3px 6px);border:1px solid var(--neutral)"></i>原文只给了大致范围</span></div>
+    <p class="muted" style="margin-top:8px">价格来自报道原文：南奢「客单约 400 元」、范琦「多在 500 元以内」、Caraxy「集中在千元档位」、戴拉和礼兰「百元至万元以上」、电镀饰品「几十到几百元」。APM Monaco 和潘多拉的价格不在本页资料里。对数刻度。</p>
+  </div>
+  <div class="grid3">
+    <div class="card tier"><div class="k">进口轻奢</div><h3>潘多拉、APM Monaco</h3><p>潘多拉中国区占集团收入从 9% 掉到 1%，关店计划翻倍到 100 家。APM 2020 年收入 19.2 亿港元，中国内地占 57.2%，之后没有公开数据。</p><span class="trend down">↘ 在退</span></div>
+    <div class="card tier"><div class="k">国产设计新品牌</div><h3>范琦、南奢、Caraxy</h3><p>银饰、名媛风、培育钻，300 元到千元档。品牌国家偏好里，中国品牌已经超过五成。</p><span class="trend up">↗ 在进</span></div>
+    <div class="card tier"><div class="k">视频号本地直播间</div><h3>戴拉珠宝、礼兰珠宝</h3><p>主打珍珠 + 银饰，价格从百元跨到万元以上。和我们在同一个平台、抢同一批人。</p><span class="trend up">↗ 热销</span></div>
+    <div class="card tier"><div class="k">白牌平替</div><h3>义乌产业带</h3><p>年产值超千亿元，80 万款以上。好卖的款很快会被复制，同款比价会很凶。</p><span class="trend">→ 一直在</span></div>
+    <div class="card tier"><div class="k">黄金</div><h3>周大福等</h3><p>不是同类，但抢同一份预算。2024 年抖音双 11 周大福销售额同比 +333%。</p><span class="trend up">↗ 抢预算</span></div>
+    <div class="card tier"><div class="k">头部换得快</div><h3>十个里八个是新面孔</h3><p>2024 年抖音双 11 时尚饰品前十，有 8 个是新上榜品牌。谁都守不住头部，新品牌也有机会。</p><span class="trend">↻ 洗牌</span></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3>潘多拉在中国：三年少了七成</h3>
+      <p class="muted">中国区销售额，亿丹麦克朗</p>
+      <div class="cols" id="pandora"></div>
+      <div class="colx" id="pandora-x"></div>
+      <p class="muted" style="margin-top:10px">2025 年第一季度只剩 0.96 亿，第二季度可比销售再降 15%。报道归纳的原因：顾客把保值放第一；合金、925 银、氧化锆、珐琅被认为不保值；国产黄金品牌吸走了年轻人。它的材质和我们很像，所以我们不能靠「保值」卖。</p>
+    </div>
+    <div class="card">
+      <h3>金价两年多翻了一倍多</h3>
+      <p class="muted">首饰金价，元/克（各时点来源不同，见出处）</p>
+      <svg class="svgc" id="gold" viewBox="0 0 560 250" role="img" aria-label="首饰金价：2023 年末约 500 元每克，2025 年 9 月 1,092，2025 年 12 月约 1,400，2026 年 9 月 1,292"></svg>
+      <p class="muted" style="margin-top:6px">金价越高，越多人找平替：金包银约 50 元/克，电镀饰品几十到几百元。但视频号禁售金色外观、基底不是黄金的商品，这条路我们走不了。</p>
+    </div>
+  </div>
+</section>
+
+<section id="redlines">
+  <div class="kicker">红线</div>
+  <h2>上架前必须过的三条红线</h2>
+  <div class="grid3">
+    <div class="card red"><div class="k">视频号 · 金色仿品禁售</div>
+      <blockquote>「黄金外观、但基底材质（内部材质）为仿黄金材质的商品，包括但不限于铜合金、塑料镀金、银镀金、包金商品等。」</blockquote>
+      <p class="muted">微信官方《视频号橱窗珠宝首饰、钟表类目管理规则》4.1.1。处罚从警告、限制营销到暂停橱窗、封号。</p></div>
+    <div class="card red"><div class="k">标题和口播 · 写清材料</div>
+      <div class="eg"><span class="y">可以</span><span>合成立方氧化锆 女士手链 16mm</span><span class="y">可以</span><span>仿祖母绿（玻璃）耳饰</span><span class="n">不行</span><span>水钻高级感手链（没写材料）</span><span class="n">不行</span><span>「仿宝石」三个字单独当名称</span></div>
+      <p class="muted" style="margin-top:8px">视频号标题：品牌（选填）+ 材质（必填）+ 款式（必填）+ 重量（选填）。国标 GB/T 16552：「仿钻石」不是钻石，要写出是什么材料。</p></div>
+    <div class="card red"><div class="k">抖音 · 规则会变</div>
+      <p style="font-size:13.5px">2022 年细则禁售仿黄金外观的银和合金制品；2023 年的解读是合金镀金类在时尚饰品类目有条件可售（企业店或个体店、体验分大于 73）。两面金可以卖，但标题、详情、直播间都要写清材质和工艺。</p>
+      <p class="muted" style="margin-top:8px">以抖店后台当期规则为准。</p></div>
+  </div>
+  <div class="card">
+    <h3>上架前自查（勾选只保存在你自己的浏览器里）</h3>
+    <div class="check" id="checklist" style="margin-top:10px">
+      <label for="ck1"><input type="checkbox" id="ck1">这款在视频号上没有金色外观；如果有，基底就是黄金</label>
+      <label for="ck2"><input type="checkbox" id="ck2">标题写了材质：例如「合成立方氧化锆」「合金镀银」</label>
+      <label for="ck3"><input type="checkbox" id="ck3">口播和详情没有：天然、真钻、A货、保值、升值、开光、辟邪、转运、最、第一、顶级</label>
+      <label for="ck4"><input type="checkbox" id="ck4">比价的参照能拿出来给人查：哪家店、什么价、哪天截的图</label>
+      <label for="ck5"><input type="checkbox" id="ck5">库存数和倒计时都是真的</label>
+    </div>
+  </div>
+</section>
+
+<section id="plays">
+  <div class="kicker">打法</div>
+  <h2>我们的机会在哪</h2>
+  <div class="opps">
+    <div class="opp"><h3>做设计款，不做黄金平替</h3><p>视频号禁售金色仿品，平替这条路本来就走不通。卖风格、场景和「适合我」。</p></div>
+    <div class="opp"><h3>把信任讲出来</h3><p>仿宝石没有证书可验：如实说材质，现场演示「看切工、看镀层、看爪镶」，讲清售后。每场不少于 20% 的时间讲工艺。</p></div>
+    <div class="opp"><h3>押讲品，不押爆款</h3><p>款式会被复制，头部年年换。主播的讲品能力和老客复购复制不了。</p></div>
+    <div class="opp"><h3>福利用赠品，不用降价</h3><p>六成人最喜欢赠品（61.19%）。赠品既是福利门，也不伤价格。</p></div>
+    <div class="opp"><h3>按价格带找比价参照</h3><p>她能看到的替代品就在价格带上：几十元的平替、四五百元的设计银饰。参照必须真实可查。</p></div>
+    <div class="opp"><h3>讲社交和情感，不讲保值</h3><p>看重保值的人去买黄金了。我们讲「戴出去有人问」「送人拿得出手」。</p></div>
+  </div>
+</section>
+
+<section id="ai">
+  <div class="kicker">方法</div>
+  <h2>用 AI 做竞品分析，每周一轮</h2>
+  <p>人负责看和判断，AI 负责整理和对比。数据只用官方后台、付费工具和人工记录，不用爬虫。</p>
+  <div class="flow">
+    <div class="step"><div class="n">第 1 步</div><h3>看</h3><p>每人每周看 3 个同价位、同客群的直播间，每个看一整轮（20–30 分钟）。</p></div>
+    <div class="step"><div class="n">第 2 步</div><h3>记</h3><p>记进「竞品雷达」：价格、材质、风格、最好用的一句话术、开哪道门、合规风险。</p></div>
+    <div class="step"><div class="n">第 3 步</div><h3>让 AI 对比</h3><p>记满 20 条，在竞品雷达里点「分析全部观察」：找价格空档、挑话术、点名风险。</p></div>
+    <div class="step"><div class="n">第 4 步</div><h3>存回知识库</h3><p>把观察下载成 .md 放进 <code>主播知识库/raw/</code>，让 AI 录入，更新竞品分层和价格带。</p></div>
+    <div class="step"><div class="n">第 5 步</div><h3>只改一处</h3><p>从分析里挑一件事，下周只改这一处，看 7 日均值有没有变化。</p></div>
+  </div>
+  <div class="card" style="display:flex;flex-direction:column;gap:10px">
+    <h3>复制给 Claude Code（或任何 AI）的指令</h3>
+    <pre class="prompt" id="prompt">按 AGENTS.md 的「录入」流程，处理 raw/ 里新放进来的竞品观察：
+1. 写一页摘要，按平台和价格带归类；
+2. 更新「竞品分层」「价格带地图」，新出现的品牌建实体页；
+3. 把每条好话术对应到五道门和逼单四要素；
+4. 按「金色仿品红线」「仿宝石定名」「禁用词」逐条查合规风险；
+5. 最后告诉我：本周最值得学的一句话术，和下周只改的一件事。
+ultrathink</pre>
+    <button class="btn copy" id="copy-prompt" type="button">复制指令</button>
+  </div>
+</section>
+
+<section id="sources">
+  <div class="kicker">出处</div>
+  <h2>资料来源</h2>
+  <ul class="src">
+    <li>中国珠宝玉石首饰行业协会《2024 年中国珠宝行业发展报告》：<a href="https://www.chinanews.com.cn/cj/2025/03-20/10386334.shtml" target="_blank" rel="noopener">中新网</a> · <a href="https://www.sohu.com/a/874018958_169427" target="_blank" rel="noopener">分品类数据</a></li>
+    <li>国家统计局 2025 年社会消费品零售：<a href="https://www.stats.gov.cn/sj/zxfbhjd/202601/t20260119_1962323.html" target="_blank" rel="noopener">stats.gov.cn</a></li>
+    <li>Deep Market Insights《China Costume Jewelry Market》：<a href="https://deepmarketinsights.com/vista/insights/costume-jewelry-market/china" target="_blank" rel="noopener">公开摘要</a></li>
+    <li>义乌饰品产业带：<a href="https://zjnews.zjol.com.cn/zjnews/202504/t20250429_30967463.shtml" target="_blank" rel="noopener">浙江新闻 2025-04-29</a></li>
+    <li>艾媒咨询 2025 年饰品消费行为调查：<a href="https://www.iimedia.cn/c400/107355.html" target="_blank" rel="noopener">iimedia.cn</a>；2023-2024 饰品产业监测：<a href="https://k.sina.cn/article_1850460740_6e4bca440010119gj.html" target="_blank" rel="noopener">新浪转载</a></li>
+    <li>视频号 2023 回顾（微信官方、新榜数据）：<a href="https://news.qq.com/rain/a/20240209A03NS200" target="_blank" rel="noopener">腾讯新闻</a>；网经社 2025 直播电商报告：<a href="https://www.100ec.cn/detail--6659027.html" target="_blank" rel="noopener">100ec.cn</a></li>
+    <li>2024 抖音双 11 珠宝饰品（沥金 × 蝉魔方）：<a href="https://m.thepaper.cn/newsDetail_forward_29380278" target="_blank" rel="noopener">澎湃新闻</a></li>
+    <li>珠宝配饰新品牌：<a href="https://finance.sina.cn/tech/csj/2026-03-10/detail-inhqnmhs6362246.d.html" target="_blank" rel="noopener">新浪财经 2026-03-10</a>；APM Monaco 招股书：<a href="https://wallstreetcn.com/articles/3634712" target="_blank" rel="noopener">华尔街见闻</a></li>
+    <li>潘多拉中国市场：<a href="https://m.nbd.com.cn/articles/2025-08-19/4019081.html" target="_blank" rel="noopener">每日经济新闻 2025-08-19</a></li>
+    <li>金价：<a href="https://news.qq.com/rain/a/20260919A03YAF00" target="_blank" rel="noopener">腾讯新闻 2026-09</a> · <a href="https://news.qq.com/rain/a/20250917A0721C00" target="_blank" rel="noopener">2025-09-17</a> · <a href="https://finance.sina.com.cn/wm/2026-01-29/doc-inhixyya3215848.shtml" target="_blank" rel="noopener">新浪财经 2026-01-29</a></li>
+    <li>视频号橱窗珠宝首饰类目规则：<a href="https://developers.weixin.qq.com/doc/channels/Operating_Specifications/Industry_norms/Jewelry_Watches.html" target="_blank" rel="noopener">微信开放文档</a>；抖音珠宝文玩细则：<a href="https://www.xiaoduoai.com/blog/5768.html" target="_blank" rel="noopener">2022 摘录</a> · <a href="https://m.5pao.com/nts/hydetail?id=68576" target="_blank" rel="noopener">2023 解读</a></li>
+    <li>国家标准 GB/T 16552《珠宝玉石 名称》：<a href="https://www.ngtc.com.cn/Uploads/201706/59364f766fd17.pdf" target="_blank" rel="noopener">NGTC 公布文本</a></li>
+    <li>内部数据：主播A 19 场复盘（脱敏）、SPM 操盘系统打法卡。全部资料和整理过程在主播知识库的 raw/ 和 wiki/ 里。</li>
+  </ul>
+</section>
+</div>
+<div class="tip" id="tip" hidden></div>
+
+<script>
+(() => {
+const $ = s => document.querySelector(s);
+const tip = $("#tip");
+function hover(el, title, lines) {
+  el.tabIndex = 0;
+  el.setAttribute("aria-label", [title, ...lines.filter(Boolean)].join("，"));
+  const show = ev => {
+    tip.replaceChildren();
+    const b = document.createElement("b"); b.textContent = title; tip.appendChild(b);
+    lines.filter(Boolean).forEach(t => { const d = document.createElement("div"); d.textContent = t; tip.appendChild(d); });
+    tip.hidden = false;
+    const r = el.getBoundingClientRect();
+    const x = ev.type === "focus" ? r.left + 20 : ev.clientX, y = ev.type === "focus" ? r.bottom : ev.clientY;
+    tip.style.left = Math.max(8, Math.min(x + 14, innerWidth - 310)) + "px";
+    tip.style.top = Math.min(y + 14, innerHeight - tip.offsetHeight - 8) + "px";
+  };
+  el.addEventListener("pointermove", show); el.addEventListener("focus", show);
+  el.addEventListener("pointerleave", () => { tip.hidden = true; }); el.addEventListener("blur", () => { tip.hidden = true; });
+}
+const fmt = v => v.toLocaleString("zh-CN", {maximumFractionDigits: 1});
+function barRow(box, {label, sub, value, max, em, text, tipLines}) {
+  const row = document.createElement("div"); row.className = "brow";
+  const lb = document.createElement("div"); lb.className = "lb"; lb.textContent = label;
+  if (sub) { const s = document.createElement("small"); s.textContent = sub; lb.appendChild(s); }
+  const bt = document.createElement("div"); bt.className = "bt";
+  // leave room at the right end for the value label, however narrow the track is
+  const f = Math.max(0.004, value / max), w = `calc((100% - 84px) * ${f})`;
+  const b = document.createElement("div"); b.className = "b" + (em ? " em" : ""); b.style.width = w;
+  const v = document.createElement("div"); v.className = "v"; v.style.left = `calc(${w} + 8px)`; v.textContent = text;
+  bt.append(b, v); row.append(lb, bt); box.appendChild(row);
+  hover(row, label, tipLines || [text]);
+  return row;
+}
+
+// ---------------------------------------------------------------- market scopes (linear, zero baseline)
+const SCOPES = [
+  {label: "流行饰品及其他", sub: "中宝协 · 2024 · 零售", value: 130, em: true, text: "130 亿元", tip: ["珠宝行业零售口径，占全行业 2%"]},
+  {label: "中国人造首饰", sub: "海外咨询 · 2025 · 零售", value: 181, em: true, text: "约 181 亿元（推算）", tip: ["25.5 亿美元，按 1 美元约 7.1 元折算", "方法未公开"]},
+  {label: "义乌饰品产业带", sub: "2024 · 工厂产值", value: 1000, text: "超 1,000 亿元", tip: ["生产产值，含出口、发饰等", "占全国 30% 以上"]},
+  {label: "金银珠宝类零售", sub: "国家统计局 · 2025", value: 3736, text: "3,736 亿元", tip: ["限额以上单位，以贵金属为主"]},
+  {label: "珠宝玉石首饰产业", sub: "中宝协 · 2024", value: 7788, text: "7,788 亿元", tip: ["全行业，黄金占 73%"]},
+];
+SCOPES.forEach(s => barRow($("#scope-bars"), {...s, max: 7788, tipLines: [s.text, ...s.tip]}));
+
+// ---------------------------------------------------------------- estimator
+const store = {get(k, d) { try { const v = localStorage.getItem("mkt." + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
+               set(k, v) { try { localStorage.setItem("mkt." + k, JSON.stringify(v)); } catch (e) {} }};
+const ids = ["r-online", "r-live", "r-sph", "r-band", "b-anchors", "b-shows", "b-gmv"];
+ids.forEach(id => { const v = store.get(id, null); if (v != null) $("#" + id).value = v; });
+const bsaved = store.get("base", "130"); if (bsaved === "181") $("#base-181").checked = true;
+const money = yi => yi >= 1 ? fmt(yi) + " 亿元" : fmt(Math.round(yi * 10000)) + " 万元";
+function estimate() {
+  const base = +document.querySelector('input[name="base"]:checked').value;
+  const on = +$("#r-online").value / 100, live = +$("#r-live").value / 100, sph = +$("#r-sph").value / 100, band = +$("#r-band").value / 100;
+  $("#o-online").textContent = Math.round(on * 100) + "%"; $("#o-live").textContent = Math.round(live * 100) + "%";
+  $("#o-sph").textContent = (sph * 100).toFixed(1) + "%"; $("#o-band").textContent = Math.round(band * 100) + "%";
+  const steps = [["零售口径", base], ["其中线上", base * on], ["其中直播", base * on * live], ["其中视频号", base * on * live * sph], ["其中 100–300 元", base * on * live * sph * band]];
+  const box = $("#funnel"); box.replaceChildren();
+  steps.forEach(([l, v], i) => barRow(box, {label: l, value: v, max: base, em: i === steps.length - 1, text: money(v), tipLines: [money(v) + " / 年（推算）"]}));
+  const sam = steps[steps.length - 1][1];
+  const r = $("#res"); r.replaceChildren();
+  const big = document.createElement("div"); big.className = "big"; big.textContent = "约 " + money(sam) + " / 年";
+  const p = document.createElement("p"); p.textContent = "视频号上 100–300 元时尚饰品的年零售额（推算）。每个比例都会让结果成倍变化，请先把「假设」换成真实数据。";
+  r.append(big, p);
+  const a = +$("#b-anchors").value || 0, s = +$("#b-shows").value || 0, g = +$("#b-gmv").value || 0;
+  const ours = a * s * 12 * g / 1e8;
+  const r2 = $("#res2"); r2.replaceChildren();
+  const b2 = document.createElement("div"); b2.className = "big"; b2.textContent = "约 " + money(ours) + " / 年";
+  const p2 = document.createElement("p");
+  p2.textContent = sam > 0 ? `${a} 位主播 × 每月 ${s} 场 × 12 个月 × 每场 ${fmt(g)} 元。相当于上面范围的 ${fmt(ours / sam * 100)}%。两条路差得很远时，先查是哪个假设错了。` : "";
+  r2.append(b2, p2);
+  ids.forEach(id => store.set(id, $("#" + id).value)); store.set("base", String(base));
+}
+[...ids.map(id => "#" + id), "#base-130", "#base-181"].forEach(s => $(s).addEventListener("input", estimate));
+estimate();
+
+// ---------------------------------------------------------------- buyers: small multiples
+const MINIS = [
+  {t: "在哪买", d: [["综合电商", 45.15], ["线下门店", 36.70], ["直播电商", 27.86, 1], ["专业珠宝市场", 26.76]], so: "<b>直播是第三大购买渠道</b>。人进来了要靠讲品留住，别指望她只在直播间买。"},
+  {t: "在哪种草", d: [["综合电商", 37.79], ["短视频", 33.02, 1], ["小红书等", 31.22], ["线下门店", 29.19]], so: "<b>短视频是第二大种草渠道</b>。开播前后发短视频，把人带进直播间。"},
+  {t: "喜欢的风格", d: [["简约风", 40.38, 1], ["现代风", 31.38], ["波西米亚", 29.34], ["新国风", 28.33]], so: "<b>简约最多，新国风接近三成</b>。讲品先讲「好不好搭」。"},
+  {t: "喜欢的促销", d: [["赠品活动", 61.19, 1], ["会员福利", 48.36], ["满减优惠", 40.53]], so: "<b>福利用赠品</b>，既开福利门，又不伤价格。"},
+  {t: "看重的附加价值", d: [["社交属性", 62.36, 1], ["投资保值", 50.70], ["情感纪念", 47.26]], so: "<b>讲社交和情感</b>。看重保值的人去买黄金了，「保值」也是我们的禁用词。"},
+  {t: "最希望改进", d: [["价格透明", 61.50, 1], ["材质质量", 57.59], ["售后服务", 43.97]], so: "<b>比价要真实，材质要说清</b>，这正好是信任门。"},
+];
+const minis = $("#minis");
+MINIS.forEach(m => {
+  const card = document.createElement("div"); card.className = "card mini";
+  const h = document.createElement("h3"); h.textContent = m.t; card.appendChild(h);
+  const bars = document.createElement("div"); bars.className = "bars"; card.appendChild(bars);
+  m.d.forEach(([l, v, em]) => barRow(bars, {label: l, value: v, max: 70, em: !!em, text: v.toFixed(2) + "%", tipLines: [v.toFixed(2) + "% 的受访者选了这一项（多选）"]}));
+  const so = document.createElement("div"); so.className = "so"; so.innerHTML = m.so; card.appendChild(so);
+  minis.appendChild(card);
+});
+
+// ---------------------------------------------------------------- price map (log scale 10–20,000 元)
+const LMIN = 1, LMAX = Math.log10(20000);
+const xp = v => (Math.log10(v) - LMIN) / (LMAX - LMIN) * 100;
+const PRICES = [
+  {n: "电镀饰品（平替）", s: "金包银、电镀 · 黄金外观", lo: 30, hi: 600, fuzzy: true, lab: "几十到几百元"},
+  {n: "我们", s: "仿宝石设计款", lo: 100, hi: 300, em: true, lab: "100–300 元"},
+  {n: "南奢", s: "抖音 · 名媛风", at: 400, lab: "客单约 400 元"},
+  {n: "范琦", s: "银饰", at: 500, lab: "多在 500 元以内"},
+  {n: "Caraxy", s: "培育钻", at: 1000, lab: "千元档"},
+  {n: "戴拉珠宝 · 礼兰珠宝", s: "视频号 · 珍珠 + 银饰", lo: 100, hi: 10000, fuzzy: true, lab: "百元至万元以上"},
+];
+const pm = $("#pmap");
+const bg = document.createElement("div"); bg.className = "bg";
+[10, 50, 100, 300, 1000, 3000, 10000].forEach(t => { const g = document.createElement("div"); g.className = "grid"; g.style.left = xp(t) + "%"; bg.appendChild(g); });
+const ours = document.createElement("div"); ours.className = "ours"; ours.style.left = xp(100) + "%"; ours.style.width = (xp(300) - xp(100)) + "%"; bg.appendChild(ours);
+pm.appendChild(bg);
+PRICES.forEach(p => {
+  const row = document.createElement("div"); row.className = "row";
+  const nm = document.createElement("div"); nm.className = "nm"; nm.textContent = p.n;
+  const sm = document.createElement("small"); sm.textContent = p.s; nm.appendChild(sm);
+  const pv = document.createElement("small"); pv.className = "pv"; pv.textContent = p.lab; nm.appendChild(pv);
+  const tr = document.createElement("div"); tr.className = "tr";
+  let right;
+  if (p.at) {
+    const d = document.createElement("div"); d.className = "dot"; d.style.left = xp(p.at) + "%"; tr.appendChild(d); right = xp(p.at) + 1.5;
+  } else {
+    const r = document.createElement("div"); r.className = "rg" + (p.em ? " em" : "") + (p.fuzzy ? " fuzzy" : "");
+    r.style.left = xp(p.lo) + "%"; r.style.width = (xp(p.hi) - xp(p.lo)) + "%"; tr.appendChild(r); right = xp(p.hi) + 1;
+  }
+  const lab = document.createElement("div"); lab.className = "pl";
+  if (right > 80) { lab.style.right = (100 - (p.at ? xp(p.at) - 1.5 : xp(p.lo) - 1)) + "%"; } else { lab.style.left = right + "%"; }
+  lab.textContent = p.lab; tr.appendChild(lab);
+  row.append(nm, tr); pm.appendChild(row);
+  hover(row, p.n, [p.s, p.lab]);
+});
+const ax = document.createElement("div"); ax.className = "axis";
+[10, 50, 100, 300, 1000, 3000, 10000].forEach(t => { const s = document.createElement("span"); if ([50, 300, 3000].includes(t)) s.className = "minor"; s.style.left = xp(t) + "%"; s.textContent = t.toLocaleString() + (t === 10 ? " 元" : ""); ax.appendChild(s); });
+pm.appendChild(ax);
+
+// ---------------------------------------------------------------- pandora columns
+const PAN = [["2019", 19.7], ["2021", 11.26], ["2023", 5.64]];
+const pc = $("#pandora"), px = $("#pandora-x");
+PAN.forEach(([y, v], i) => {
+  const col = document.createElement("div"); col.className = "col";
+  const c = document.createElement("div"); c.className = "c" + (i === PAN.length - 1 ? " em" : ""); c.style.height = (v / 19.7 * 100) + "%";
+  const cv = document.createElement("div"); cv.className = "cv"; cv.style.bottom = `calc(${v / 19.7 * 100}% + 4px)`; cv.textContent = v;
+  col.append(c, cv); pc.appendChild(col);
+  const s = document.createElement("span"); s.textContent = y; px.appendChild(s);
+  hover(col, y + " 年", [v + " 亿丹麦克朗"]);
+});
+
+// ---------------------------------------------------------------- gold line (SVG)
+const G = [{d: "2023-12-31", v: 500, lab: "约 500", src: "腾讯新闻 2025-09-17 回顾：2023 年末约 500 元/克"},
+           {d: "2025-09-17", v: 1092, lab: "1,092", src: "腾讯新闻：当日最高 1,092 元/克"},
+           {d: "2025-12-28", v: 1400, lab: "约 1,400", src: "新浪财经：纯金首饰金价约 1,400 元/克"},
+           {d: "2026-09-25", v: 1292, lab: "1,292", src: "周大福挂牌价（腾讯新闻）"}];
+const svg = $("#gold"), NS = "http://www.w3.org/2000/svg";
+const t0 = Date.parse("2023-10-01"), t1 = Date.parse("2026-12-01");
+const X = d => 50 + (Date.parse(d) - t0) / (t1 - t0) * 490, Y = v => 215 - v / 1500 * 185;
+const el = (n, a, txt) => { const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); if (txt != null) e.textContent = txt; svg.appendChild(e); return e; };
+[0, 500, 1000, 1500].forEach(v => { el("line", {x1: 50, x2: 540, y1: Y(v), y2: Y(v), stroke: "var(--line)", "stroke-width": 1}); el("text", {x: 42, y: Y(v) + 4, "text-anchor": "end", "font-size": 11, fill: "var(--ink-3)"}, v.toLocaleString()); });
+["2024-01-01", "2025-01-01", "2026-01-01"].forEach(d => el("text", {x: X(d), y: 238, "text-anchor": "middle", "font-size": 11, fill: "var(--ink-3)"}, d.slice(0, 4)));
+el("line", {x1: 50, x2: 540, y1: Y(0), y2: Y(0), stroke: "var(--line-2)", "stroke-width": 1});
+el("polyline", {points: G.map(p => X(p.d) + "," + Y(p.v)).join(" "), fill: "none", stroke: "var(--mark)", "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round"});
+G.forEach((p, i) => {
+  const g = document.createElementNS(NS, "g"); svg.appendChild(g);
+  const hit = document.createElementNS(NS, "circle"); hit.setAttribute("cx", X(p.d)); hit.setAttribute("cy", Y(p.v)); hit.setAttribute("r", 14); hit.setAttribute("fill", "transparent"); g.appendChild(hit);
+  const c = document.createElementNS(NS, "circle"); c.setAttribute("cx", X(p.d)); c.setAttribute("cy", Y(p.v)); c.setAttribute("r", 4.5); c.setAttribute("fill", "var(--mark)"); c.setAttribute("stroke", "var(--surface)"); c.setAttribute("stroke-width", 2); g.appendChild(c);
+  if (i !== 1) { const t = document.createElementNS(NS, "text"); t.setAttribute("x", X(p.d) + (i === 3 ? -8 : 8)); t.setAttribute("y", Y(p.v) + (i === 3 ? 22 : -10)); t.setAttribute("text-anchor", i === 3 ? "end" : "start"); t.setAttribute("font-size", 12); t.setAttribute("fill", "var(--ink)"); t.textContent = p.lab; g.appendChild(t); }
+  hover(g, p.d, [p.v.toLocaleString() + " 元/克", p.src]);
+});
+
+// ---------------------------------------------------------------- checklist + copy
+document.querySelectorAll("#checklist input").forEach(cb => {
+  cb.checked = !!store.get(cb.id, false);
+  cb.addEventListener("change", () => store.set(cb.id, cb.checked));
+});
+$("#copy-prompt").onclick = async e => {
+  const btn = e.currentTarget, text = $("#prompt").textContent;
+  try { await navigator.clipboard.writeText(text); btn.textContent = "已复制"; }
+  catch (err) { const r = document.createRange(); r.selectNodeContents($("#prompt")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "已选中，按 Ctrl/Cmd+C 复制"; }
+  setTimeout(() => { btn.textContent = "复制指令"; }, 2400);
+};
+})();
+</script>

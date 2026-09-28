@@ -28,6 +28,8 @@ SRC = ROOT / "src"
 FONT_DIR = ROOT / ".fonts"
 # 主播知识库的交互图谱（tools/kb/explorer.py 生成，发布为 Artifact）
 KB_URL = "https://claude.ai/artifact/5pmYWe2raA7bJ8A1Kax5F6"
+# 时尚饰品市场地图（dist/market/index.html，发布为 Artifact）
+MARKET_URL = "https://claude.ai/artifact/DrjzLKqofjnRGN72M8VkiB"
 DIST = REPO / "dist"
 GSAP_VERSION = (ROOT / "vendor" / "GSAP_VERSION").read_text().strip()
 
@@ -37,7 +39,7 @@ FONT_FILES = {
     "bodoni": ("ofl/bodonimoda/BodoniModa-Italic%5Bopsz,wght%5D.ttf", "BodoniModa-Italic[opsz,wght].ttf"),
     "mono": ("ofl/dmmono/DMMono-Regular.ttf", "DMMono-Regular.ttf"),
 }
-JS_FILES = ["reel-engine.js", "reel-scenes.js", "reel-lessons.js", "boot.js"]
+JS_FILES = ["reel-engine.js", "reel-scenes.js", "reel-lessons.js", "reel-market.js", "boot.js"]
 
 
 def fetch_fonts():
@@ -151,7 +153,8 @@ def main():
                 .replace("{{PAGE_CSS}}", read("page.css"))
                 .replace("{{STAGE}}", stage)
                 .replace("{{HANDBOOK}}", handbook_html())
-                .replace("{{KB_URL}}", KB_URL))
+                .replace("{{KB_URL}}", KB_URL)
+                .replace("{{MARKET_URL}}", MARKET_URL))
     (DIST / "showreel" / "index.html").write_text(page.replace("{{SCRIPTS}}", scripts(False)), encoding="utf-8")
     (DIST / "showreel" / "preview.html").write_text(
         "<!doctype html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"></head><body>"

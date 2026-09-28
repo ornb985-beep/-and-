@@ -12,6 +12,7 @@ and     dist/showreel/audio/<name>.mp3  (for the web player)
 import json
 import pathlib
 import subprocess
+import sys
 
 import numpy as np
 from scipy import signal
@@ -469,6 +470,44 @@ def teaser():
     return 15, secs, c, 120
 
 
+def market():
+    # scene starts (reel-market.js): open 0 · scope 7 · buyer 20 · rivals 31 · red line 44 · play 56 · outro 63
+    secs = [
+        dict(start=0, end=2.5, pad=.45, bright=.3),
+        dict(start=2.5, end=7, pad=.6, bright=.45),
+        dict(start=7, end=20, kick=2, hat=1, bass=True, pad=.5, bright=.5),
+        dict(start=20, end=31, kick=2, hat=1, clap=True, arp=1, bass=True, pad=.5, bright=.55),
+        dict(start=31, end=44, kick=2, hat=2, clap=True, arp=2, bass=True, pad=.55, bright=.65),
+        dict(start=44, end=56, kick=1, bass=True, arp=1, pad=.42, bright=.33, prog=PROG_DARK),
+        dict(start=56, end=63, kick=2, hat=2, clap=True, arp=2, bass=True, pad=.6, bright=.8),
+        dict(start=63, end=71, pad=.55, bright=.5),
+    ]
+    c = cues_open(0, True)
+    # scope: five bars grow, our two light up, "so" line
+    c += [("tick", 8.2 + i * .32, 1800 + i * 120) for i in range(5)]
+    c += [("impact", 12.6, None, .45), ("chord", 12.6, ["C5", "E5", "G5"], .8), ("bell", 16.4, "A4")]
+    # buyer: three bars, two counters, "so" line
+    c += [("pluck", 21.1 + i * .35, n) for i, n in enumerate(["A4", "C5", "E5"])]
+    c += [("impact", 23.6, None, .4)] + [("tick", 23.8 + k * .07, 2400, .6) for k in range(12)] + [("bell", 25.2, "E5")]
+    c += [("impact", 25.4, None, .4)] + [("tick", 25.6 + k * .07, 2600, .6) for k in range(12)] + [("bell", 27.0, "G5")]
+    c += [("bell", 27.6, "A5", .8)]
+    # rivals: six price marks, then the two stat cards and Pandora's falling columns
+    c += [("tick", 32.4 + i * .38, 1600 + i * 150) for i in range(6)]
+    c += [("whoosh", 38.7, None, .6), ("impact", 39.0, None, .55), ("chord", 39.2, ["C5", "E5", "G5", "C6"], .8)]
+    c += [("impact", 39.9, None, .5)] + [("bell", 40.3 + i * .3, n, .8) for i, n in enumerate(["E5", "C5", "A4"])]
+    # red line: gold line draws, dots land, red stamp hits, "so" line
+    c += [("riser", 45.0, 2.2, .7)] + [("tick", 45.0 + d, 2000 + i * 200) for i, d in enumerate([0, .9, 1.6, 2.1])]
+    c += [("pluck", 47.4, "E5"), ("impact", 48.8, None, 1.0), ("chord", 48.8, ["A3", "C4", "E4", "A4"], .9), ("bell", 52.2, "A4", .8)]
+    # play: three cards, the five-step loop
+    c += [("bell", 56.7 + i * .35, n, .8) for i, n in enumerate(["C5", "E5", "G5"])]
+    c += [("tick", 58.8 + i * .36, 2200 + i * 100) for i in range(5)] + [("ding", 60.4, None, .9)]
+    # outro
+    c += [("impact", 63.5, None, .9), ("chord", 63.5, ["A3", "E4", "A4", "C5", "E5", "A5"]),
+          ("bell", 64.2, "E5", .7), ("bell", 64.6, "A5", .7), ("chord", 65.2, ["F4", "A4", "C5", "E5", "G5"], .8)]
+    c += [("whoosh", t - .4, None, .7) for t in (7, 20, 31, 44, 56, 63)]
+    return 68, secs, c, 120
+
+
 def lesson(meta):
     dur = meta["dur"]
     secs = [dict(start=0, end=dur + 3, kick=1, arp=1, pad=.42, bright=.38, bass=False)]
@@ -502,13 +541,21 @@ def build(name, spec, mp3_name):
 
 
 def main():
+    # optional reel ids on the command line build only those, e.g. `python3 showreel/audio.py market`
+    only = set(sys.argv[1:])
+    want = lambda name: not only or name in only
     timings = {r["id"]: r for r in json.loads((ROOT / "timings.json").read_text())}
-    build("full", full(), "reel-full.mp3")
-    build("investor", investor(), "reel-investor.mp3")
-    build("teaser", teaser(), "reel-teaser.mp3")
+    if want("full"):
+        build("full", full(), "reel-full.mp3")
+    if want("investor"):
+        build("investor", investor(), "reel-investor.mp3")
+    if want("teaser"):
+        build("teaser", teaser(), "reel-teaser.mp3")
+    if want("market"):
+        build("market", market(), "reel-market.mp3")
     for i in range(10):
         meta = timings.get(f"l{i}")
-        if meta:
+        if meta and want(f"l{i}"):
             build(f"l{i}", lesson(meta), f"lesson-{i}.mp3")
 
 

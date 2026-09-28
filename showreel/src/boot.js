@@ -20,6 +20,7 @@
     if (R.buildFull) order.push(R.buildFull());
     if (R.buildInvestor) order.push(R.buildInvestor());
     if (R.buildTeaser) order.push(R.buildTeaser());
+    if (R.buildMarket) order.push(R.buildMarket());
     if (R.buildLessons) R.buildLessons().forEach(r => order.push(r));
     R.ORDER = order;
     R.useReel(order[0].id);

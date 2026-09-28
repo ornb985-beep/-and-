@@ -1,0 +1,24 @@
+filters:
+  and:
+    - file.inFolder("wiki/entities")
+    - 'kind.contains("品牌")'
+properties:
+  kind:
+    displayName: 类别
+  created:
+    displayName: 录入日期
+views:
+  - type: table
+    name: 竞品与对标品牌
+    groupBy:
+      property: kind
+      direction: ASC
+    order:
+      - file.name
+      - kind
+      - created
+  - type: cards
+    name: 卡片
+    order:
+      - file.name
+      - kind

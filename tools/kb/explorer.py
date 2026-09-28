@@ -16,6 +16,7 @@ REPO = HERE.parent.parent
 VAULT = REPO / "主播知识库"
 OUT = REPO / "dist" / "kb" / "index.html"
 REEL_URL = "https://claude.ai/artifact/SHzYL92cgqLjky17FidRbB"  # 影片与训练文档（showreel/build.py 生成）
+MARKET_URL = "https://claude.ai/artifact/DrjzLKqofjnRGN72M8VkiB"  # 时尚饰品市场地图（dist/market/index.html）
 
 LINK_RE = re.compile(r"\[\[([^\]|#]+)(?:#[^\]|]*)?(?:\\?\|[^\]]*)?\]\]")
 FOLDER_TYPE = {"synthesis": "synthesis", "lessons": "lesson", "concepts": "concept", "comparisons": "comparison",
@@ -109,7 +110,7 @@ def main():
              "orphans": sum(1 for d in docs if d["path"].startswith("wiki/") and d["type"] not in ("meta",) and not d["in"])}
     data = {"docs": docs, "edges": edges, "stats": stats}
     blob = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
-    html = (HERE / "explorer.html").read_text(encoding="utf-8").replace("/*KB_DATA*/{}", blob).replace("{{REEL_URL}}", REEL_URL)
+    html = (HERE / "explorer.html").read_text(encoding="utf-8").replace("/*KB_DATA*/{}", blob).replace("{{REEL_URL}}", REEL_URL).replace("{{MARKET_URL}}", MARKET_URL)
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(html, encoding="utf-8")
     print(f"{OUT.relative_to(REPO)} · {len(docs)} docs · {len(edges)} links · unresolved {len(unresolved)} · "

@@ -87,6 +87,34 @@
   "chapters": []
  },
  {
+  "id": "market",
+  "label": "市场篇",
+  "dur": 68,
+  "audio": "audio/reel-market.mp3",
+  "chapters": [
+   {
+    "title": "市场口径",
+    "start": 7
+   },
+   {
+    "title": "谁在买",
+    "start": 20
+   },
+   {
+    "title": "谁在抢",
+    "start": 31
+   },
+   {
+    "title": "风向与红线",
+    "start": 44
+   },
+   {
+    "title": "我们的打法",
+    "start": 56
+   }
+  ]
+ },
+ {
   "id": "l0",
   "label": "第 0 课 · 为什么",
   "dur": 52.5,

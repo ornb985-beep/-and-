@@ -1,0 +1,238 @@
+{
+ "nodes": [
+  {
+   "id": "5a17c0de000c7229",
+   "type": "file",
+   "file": "wiki/synthesis/饰品市场与竞争-总览.md",
+   "x": 0,
+   "y": -40,
+   "width": 460,
+   "height": 300,
+   "color": "#D8BC80"
+  },
+  {
+   "id": "5a17c0de000c9118",
+   "type": "group",
+   "label": "市场有多大：先分口径",
+   "x": -1060,
+   "y": -200,
+   "width": 520,
+   "height": 980,
+   "color": "5"
+  },
+  {
+   "id": "5a17c0de000cb007",
+   "type": "file",
+   "file": "wiki/concepts/五个市场口径.md",
+   "x": -1020,
+   "y": -150,
+   "width": 440,
+   "height": 260,
+   "color": "5"
+  },
+  {
+   "id": "5a17c0de000ccef6",
+   "type": "file",
+   "file": "wiki/concepts/市场范围估算.md",
+   "x": -1020,
+   "y": 150,
+   "width": 440,
+   "height": 260,
+   "color": "5"
+  },
+  {
+   "id": "5a17c0de000cede5",
+   "type": "file",
+   "file": "wiki/concepts/时尚饰品.md",
+   "x": -1020,
+   "y": 450,
+   "width": 440,
+   "height": 260,
+   "color": "5"
+  },
+  {
+   "id": "5a17c0de000d2bc3",
+   "type": "group",
+   "label": "谁在竞争",
+   "x": 620,
+   "y": -200,
+   "width": 520,
+   "height": 1280,
+   "color": "4"
+  },
+  {
+   "id": "5a17c0de000d4ab2",
+   "type": "file",
+   "file": "wiki/concepts/竞品分层.md",
+   "x": 660,
+   "y": -150,
+   "width": 440,
+   "height": 260,
+   "color": "4"
+  },
+  {
+   "id": "5a17c0de000d69a1",
+   "type": "file",
+   "file": "wiki/concepts/价格带地图.md",
+   "x": 660,
+   "y": 150,
+   "width": 440,
+   "height": 260,
+   "color": "4"
+  },
+  {
+   "id": "5a17c0de000d8890",
+   "type": "file",
+   "file": "wiki/concepts/品牌护城河薄.md",
+   "x": 660,
+   "y": 450,
+   "width": 440,
+   "height": 260,
+   "color": "4"
+  },
+  {
+   "id": "5a17c0de000da77f",
+   "type": "file",
+   "file": "wiki/comparisons/潘多拉与我们.md",
+   "x": 660,
+   "y": 750,
+   "width": 440,
+   "height": 260,
+   "color": "4"
+  },
+  {
+   "id": "5a17c0de000de55d",
+   "type": "group",
+   "label": "红线",
+   "x": -1060,
+   "y": 860,
+   "width": 520,
+   "height": 700,
+   "color": "1"
+  },
+  {
+   "id": "5a17c0de000e044c",
+   "type": "file",
+   "file": "wiki/concepts/金色仿品红线.md",
+   "x": -1020,
+   "y": 910,
+   "width": 440,
+   "height": 280,
+   "color": "1"
+  },
+  {
+   "id": "5a17c0de000e233b",
+   "type": "file",
+   "file": "wiki/concepts/仿宝石定名.md",
+   "x": -1020,
+   "y": 1230,
+   "width": 440,
+   "height": 280,
+   "color": "1"
+  },
+  {
+   "id": "5a17c0de000e422a",
+   "type": "group",
+   "label": "我们的路",
+   "x": -140,
+   "y": 400,
+   "width": 720,
+   "height": 700,
+   "color": "6"
+  },
+  {
+   "id": "5a17c0de000e6119",
+   "type": "file",
+   "file": "wiki/comparisons/平替与设计款.md",
+   "x": -100,
+   "y": 450,
+   "width": 640,
+   "height": 280,
+   "color": "6"
+  },
+  {
+   "id": "5a17c0de000e8008",
+   "type": "file",
+   "file": "wiki/concepts/仿宝石的信任.md",
+   "x": -100,
+   "y": 770,
+   "width": 640,
+   "height": 280,
+   "color": "6"
+  },
+  {
+   "id": "5a17c0de000edcd5",
+   "type": "file",
+   "file": "wiki/concepts/竞品观察.md",
+   "x": 660,
+   "y": 1160,
+   "width": 440,
+   "height": 240,
+   "color": "2"
+  },
+  {
+   "id": "5a17c0de000efbc4",
+   "type": "file",
+   "file": "wiki/concepts/AI竞品分析流程.md",
+   "x": 1140,
+   "y": 1160,
+   "width": 440,
+   "height": 240,
+   "color": "2"
+  }
+ ],
+ "edges": [
+  {
+   "id": "5a17c0de000d0cd4",
+   "fromNode": "5a17c0de000cb007",
+   "fromSide": "right",
+   "toNode": "5a17c0de000c7229",
+   "toSide": "left",
+   "toEnd": "arrow",
+   "label": "零售口径 130–180 亿元"
+  },
+  {
+   "id": "5a17c0de000dc66e",
+   "fromNode": "5a17c0de000c7229",
+   "fromSide": "right",
+   "toNode": "5a17c0de000d4ab2",
+   "toSide": "left",
+   "toEnd": "arrow"
+  },
+  {
+   "id": "5a17c0de000e9ef7",
+   "fromNode": "5a17c0de000c7229",
+   "fromSide": "bottom",
+   "toNode": "5a17c0de000e6119",
+   "toSide": "top",
+   "toEnd": "arrow"
+  },
+  {
+   "id": "5a17c0de000ebde6",
+   "fromNode": "5a17c0de000e044c",
+   "fromSide": "right",
+   "toNode": "5a17c0de000e6119",
+   "toSide": "left",
+   "toEnd": "arrow",
+   "label": "所以"
+  },
+  {
+   "id": "5a17c0de000f1ab3",
+   "fromNode": "5a17c0de000edcd5",
+   "fromSide": "right",
+   "toNode": "5a17c0de000efbc4",
+   "toSide": "left",
+   "toEnd": "arrow",
+   "label": "记满 20 条"
+  },
+  {
+   "id": "5a17c0de000f39a2",
+   "fromNode": "5a17c0de000efbc4",
+   "fromSide": "top",
+   "toNode": "5a17c0de000c7229",
+   "toSide": "right",
+   "toEnd": "arrow",
+   "label": "结论存回"
+  }
+ ]
+}
