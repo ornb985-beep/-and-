@@ -1,0 +1,39 @@
+{
+  "items": [
+    {
+      "type": "file",
+      "path": "wiki/index.md",
+      "title": "索引"
+    },
+    {
+      "type": "file",
+      "path": "wiki/synthesis/成交方程式-总览.md",
+      "title": "总览"
+    },
+    {
+      "type": "file",
+      "path": "canvas/成交方程式-总览.canvas",
+      "title": "白板 · 总览"
+    },
+    {
+      "type": "file",
+      "path": "canvas/五道门.canvas",
+      "title": "白板 · 五道门"
+    },
+    {
+      "type": "file",
+      "path": "canvas/训练路线图.canvas",
+      "title": "白板 · 训练路线图"
+    },
+    {
+      "type": "file",
+      "path": "bases/场次数据.base",
+      "title": "数据 · 场次"
+    },
+    {
+      "type": "file",
+      "path": "wiki/log.md",
+      "title": "日志"
+    }
+  ]
+}

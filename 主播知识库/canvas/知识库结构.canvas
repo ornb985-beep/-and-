@@ -1,0 +1,128 @@
+{
+ "nodes": [
+  {
+   "id": "5a17c0de000ae006",
+   "type": "text",
+   "text": "## raw/\n原始资料，只读\n\n内部资料 · 公开数据 · 方法论\n（Web Clipper / 手动放入）",
+   "x": 0,
+   "y": 0,
+   "width": 360,
+   "height": 240,
+   "color": "5"
+  },
+  {
+   "id": "5a17c0de000afef5",
+   "type": "text",
+   "text": "## wiki/\nAI 维护的维基\n\n概念 · 实体 · 摘要 · 对比 · 综合 · 课程 · 问题 · 数据\nindex.md · log.md",
+   "x": 520,
+   "y": 0,
+   "width": 380,
+   "height": 260,
+   "color": "#D8BC80"
+  },
+  {
+   "id": "5a17c0de000b1de4",
+   "type": "text",
+   "text": "## outputs/\n存回的答案、报告、体检",
+   "x": 1060,
+   "y": 0,
+   "width": 340,
+   "height": 200,
+   "color": "4"
+  },
+  {
+   "id": "5a17c0de000b3cd3",
+   "type": "text",
+   "text": "## 规则\nAGENTS.md · CLAUDE.md\n.claude/skills（obsidian-skills）",
+   "x": 520,
+   "y": -320,
+   "width": 380,
+   "height": 200,
+   "color": "6"
+  },
+  {
+   "id": "5a17c0de000b5bc2",
+   "type": "text",
+   "text": "## 体检 lint\n每周一次：冲突 · 过时 · 孤立页 · 断链 · 缺口",
+   "x": 1060,
+   "y": -320,
+   "width": 340,
+   "height": 170,
+   "color": "1"
+  },
+  {
+   "id": "5a17c0de000c344b",
+   "type": "file",
+   "file": "wiki/知识库使用说明.md",
+   "x": 0,
+   "y": 360,
+   "width": 360,
+   "height": 200
+  },
+  {
+   "id": "5a17c0de000c533a",
+   "type": "file",
+   "file": "wiki/concepts/LLM Wiki方法.md",
+   "x": 520,
+   "y": 360,
+   "width": 380,
+   "height": 200
+  }
+ ],
+ "edges": [
+  {
+   "id": "5a17c0de000b7ab1",
+   "fromNode": "5a17c0de000ae006",
+   "fromSide": "right",
+   "toNode": "5a17c0de000afef5",
+   "toSide": "left",
+   "toEnd": "arrow",
+   "label": "录入 ingest"
+  },
+  {
+   "id": "5a17c0de000b99a0",
+   "fromNode": "5a17c0de000afef5",
+   "fromSide": "right",
+   "toNode": "5a17c0de000b1de4",
+   "toSide": "left",
+   "toEnd": "arrow",
+   "label": "提问 query"
+  },
+  {
+   "id": "5a17c0de000bb88f",
+   "fromNode": "5a17c0de000b1de4",
+   "fromSide": "bottom",
+   "toNode": "5a17c0de000afef5",
+   "toSide": "bottom",
+   "toEnd": "arrow",
+   "label": "好答案存回"
+  },
+  {
+   "id": "5a17c0de000bd77e",
+   "fromNode": "5a17c0de000b3cd3",
+   "fromSide": "bottom",
+   "toNode": "5a17c0de000afef5",
+   "toSide": "top",
+   "toEnd": "arrow",
+   "label": "约束"
+  },
+  {
+   "id": "5a17c0de000bf66d",
+   "fromNode": "5a17c0de000afef5",
+   "fromSide": "top",
+   "toNode": "5a17c0de000b5bc2",
+   "toSide": "left",
+   "toEnd": "arrow",
+   "label": "检查"
+  },
+  {
+   "id": "5a17c0de000c155c",
+   "fromNode": "5a17c0de000b5bc2",
+   "fromSide": "bottom",
+   "toNode": "5a17c0de000b1de4",
+   "toSide": "top",
+   "toEnd": "arrow",
+   "label": "报告"
+  }
+ ]
+}

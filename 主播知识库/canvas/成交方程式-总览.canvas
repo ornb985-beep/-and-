@@ -1,0 +1,320 @@
+{
+ "nodes": [
+  {
+   "id": "5a17c0de00001eef",
+   "type": "text",
+   "text": "# 成交方程式\n\n讲到你自己都想买，你就讲对了。\n\n直播只有两个字：**拉新**、**逼单**。",
+   "x": -40,
+   "y": -420,
+   "width": 520,
+   "height": 220,
+   "color": "#D8BC80"
+  },
+  {
+   "id": "5a17c0de00003dde",
+   "type": "group",
+   "label": "三次失败 → 三条理由",
+   "x": -1300,
+   "y": -120,
+   "width": 1000,
+   "height": 1080,
+   "color": "1"
+  },
+  {
+   "id": "5a17c0de00005ccd",
+   "type": "file",
+   "file": "wiki/synthesis/失败1-试训半天流失.md",
+   "x": -1260,
+   "y": -60,
+   "width": 400,
+   "height": 260,
+   "color": "1"
+  },
+  {
+   "id": "5a17c0de00007bbc",
+   "type": "file",
+   "file": "wiki/synthesis/失败2-19场4场达标.md",
+   "x": -1260,
+   "y": 280,
+   "width": 400,
+   "height": 260,
+   "color": "1"
+  },
+  {
+   "id": "5a17c0de00009aab",
+   "type": "file",
+   "file": "wiki/synthesis/失败3-打法卡8张未命中.md",
+   "x": -1260,
+   "y": 620,
+   "width": 400,
+   "height": 260,
+   "color": "1"
+  },
+  {
+   "id": "5a17c0de0000b99a",
+   "type": "file",
+   "file": "wiki/concepts/先筛后教.md",
+   "x": -760,
+   "y": -60,
+   "width": 400,
+   "height": 260
+  },
+  {
+   "id": "5a17c0de0000d889",
+   "type": "file",
+   "file": "wiki/concepts/讲人话.md",
+   "x": -760,
+   "y": 280,
+   "width": 400,
+   "height": 260
+  },
+  {
+   "id": "5a17c0de0000f778",
+   "type": "file",
+   "file": "wiki/comparisons/底层逻辑与打法卡.md",
+   "x": -760,
+   "y": 620,
+   "width": 400,
+   "height": 260
+  },
+  {
+   "id": "5a17c0de00017334",
+   "type": "group",
+   "label": "七层体系",
+   "x": 40,
+   "y": -120,
+   "width": 560,
+   "height": 2020,
+   "color": "#D8BC80"
+  },
+  {
+   "id": "5a17c0de00019223",
+   "type": "file",
+   "file": "wiki/concepts/底层方程.md",
+   "x": 80,
+   "y": -80,
+   "width": 480,
+   "height": 240
+  },
+  {
+   "id": "5a17c0de0001b112",
+   "type": "file",
+   "file": "wiki/concepts/五道门.md",
+   "x": 80,
+   "y": 200,
+   "width": 480,
+   "height": 240
+  },
+  {
+   "id": "5a17c0de0001d001",
+   "type": "file",
+   "file": "wiki/concepts/讲品六步.md",
+   "x": 80,
+   "y": 480,
+   "width": 480,
+   "height": 240
+  },
+  {
+   "id": "5a17c0de0001eef0",
+   "type": "file",
+   "file": "wiki/concepts/逼单四要素.md",
+   "x": 80,
+   "y": 760,
+   "width": 480,
+   "height": 240
+  },
+  {
+   "id": "5a17c0de00020ddf",
+   "type": "file",
+   "file": "wiki/concepts/憋单框架.md",
+   "x": 80,
+   "y": 1040,
+   "width": 480,
+   "height": 240
+  },
+  {
+   "id": "5a17c0de00022cce",
+   "type": "file",
+   "file": "wiki/concepts/每轮五个数.md",
+   "x": 80,
+   "y": 1320,
+   "width": 480,
+   "height": 240
+  },
+  {
+   "id": "5a17c0de00024bbd",
+   "type": "file",
+   "file": "wiki/concepts/播法类型.md",
+   "x": 80,
+   "y": 1600,
+   "width": 480,
+   "height": 240
+  },
+  {
+   "id": "5a17c0de00034335",
+   "type": "group",
+   "label": "贯穿模块",
+   "x": 700,
+   "y": -120,
+   "width": 480,
+   "height": 620,
+   "color": "6"
+  },
+  {
+   "id": "5a17c0de00036224",
+   "type": "file",
+   "file": "wiki/concepts/拆解七步.md",
+   "x": 740,
+   "y": -80,
+   "width": 400,
+   "height": 260,
+   "color": "6"
+  },
+  {
+   "id": "5a17c0de00038113",
+   "type": "file",
+   "file": "wiki/concepts/合规红线.md",
+   "x": 740,
+   "y": 220,
+   "width": 400,
+   "height": 260,
+   "color": "1"
+  },
+  {
+   "id": "5a17c0de0003a002",
+   "type": "group",
+   "label": "给投资人",
+   "x": 700,
+   "y": 560,
+   "width": 480,
+   "height": 900,
+   "color": "4"
+  },
+  {
+   "id": "5a17c0de0003bef1",
+   "type": "file",
+   "file": "wiki/concepts/直播电商市场规模.md",
+   "x": 740,
+   "y": 600,
+   "width": 400,
+   "height": 240,
+   "color": "4"
+  },
+  {
+   "id": "5a17c0de0003dde0",
+   "type": "file",
+   "file": "wiki/concepts/一笔真实的账.md",
+   "x": 740,
+   "y": 880,
+   "width": 400,
+   "height": 240,
+   "color": "4"
+  },
+  {
+   "id": "5a17c0de0003fccf",
+   "type": "file",
+   "file": "wiki/concepts/经济价值推算.md",
+   "x": 740,
+   "y": 1160,
+   "width": 400,
+   "height": 240,
+   "color": "4"
+  }
+ ],
+ "edges": [
+  {
+   "id": "5a17c0de00011667",
+   "fromNode": "5a17c0de00005ccd",
+   "fromSide": "right",
+   "toNode": "5a17c0de0000b99a",
+   "toSide": "left",
+   "toEnd": "arrow",
+   "label": "所以"
+  },
+  {
+   "id": "5a17c0de00013556",
+   "fromNode": "5a17c0de00007bbc",
+   "fromSide": "right",
+   "toNode": "5a17c0de0000d889",
+   "toSide": "left",
+   "toEnd": "arrow",
+   "label": "所以"
+  },
+  {
+   "id": "5a17c0de00015445",
+   "fromNode": "5a17c0de00009aab",
+   "fromSide": "right",
+   "toNode": "5a17c0de0000f778",
+   "toSide": "left",
+   "toEnd": "arrow",
+   "label": "所以"
+  },
+  {
+   "id": "5a17c0de00026aac",
+   "fromNode": "5a17c0de00019223",
+   "fromSide": "bottom",
+   "toNode": "5a17c0de0001b112",
+   "toSide": "top",
+   "toEnd": "arrow"
+  },
+  {
+   "id": "5a17c0de0002899b",
+   "fromNode": "5a17c0de0001b112",
+   "fromSide": "bottom",
+   "toNode": "5a17c0de0001d001",
+   "toSide": "top",
+   "toEnd": "arrow"
+  },
+  {
+   "id": "5a17c0de0002a88a",
+   "fromNode": "5a17c0de0001d001",
+   "fromSide": "bottom",
+   "toNode": "5a17c0de0001eef0",
+   "toSide": "top",
+   "toEnd": "arrow"
+  },
+  {
+   "id": "5a17c0de0002c779",
+   "fromNode": "5a17c0de0001eef0",
+   "fromSide": "bottom",
+   "toNode": "5a17c0de00020ddf",
+   "toSide": "top",
+   "toEnd": "arrow"
+  },
+  {
+   "id": "5a17c0de0002e668",
+   "fromNode": "5a17c0de00020ddf",
+   "fromSide": "bottom",
+   "toNode": "5a17c0de00022cce",
+   "toSide": "top",
+   "toEnd": "arrow"
+  },
+  {
+   "id": "5a17c0de00030557",
+   "fromNode": "5a17c0de00022cce",
+   "fromSide": "bottom",
+   "toNode": "5a17c0de00024bbd",
+   "toSide": "top",
+   "toEnd": "arrow"
+  },
+  {
+   "id": "5a17c0de00032446",
+   "fromNode": "5a17c0de00022cce",
+   "fromSide": "right",
+   "toNode": "5a17c0de0001d001",
+   "toSide": "right",
+   "toEnd": "arrow",
+   "label": "下一场只改一处",
+   "color": "4"
+  },
+  {
+   "id": "5a17c0de00041bbe",
+   "fromNode": "5a17c0de0000b99a",
+   "fromSide": "right",
+   "toNode": "5a17c0de00019223",
+   "toSide": "left",
+   "toEnd": "arrow",
+   "label": "理由进入体系"
+  }
+ ]
+}

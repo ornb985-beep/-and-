@@ -1,0 +1,36 @@
+filters:
+  and:
+    - file.inFolder("wiki/concepts")
+formulas:
+  backlinks: 'file.backlinks.length'
+properties:
+  layer:
+    displayName: 层
+  lesson:
+    displayName: 课程
+  confidence:
+    displayName: 可信度
+  formula.backlinks:
+    displayName: 被引用次数
+views:
+  - type: table
+    name: 按层
+    groupBy:
+      property: layer
+      direction: ASC
+    order:
+      - file.name
+      - layer
+      - lesson
+      - confidence
+      - formula.backlinks
+  - type: table
+    name: 最常被引用
+    order:
+      - file.name
+      - formula.backlinks
+      - layer
+    sort:
+      - property: formula.backlinks
+        direction: DESC
+    limit: 25

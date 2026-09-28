@@ -1,0 +1,61 @@
+filters:
+  and:
+    - file.inFolder("wiki/data/场次")
+formulas:
+  achieve: 'if(target > 0, (gmv / target * 100).round(0), "")'
+  gmv_per_hour: '(gmv / minutes * 60).round(0)'
+properties:
+  date:
+    displayName: 日期
+  minutes:
+    displayName: 时长（分）
+  gmv:
+    displayName: GMV（元）
+  target:
+    displayName: 目标（元）
+  hit:
+    displayName: 达标
+  peak_online:
+    displayName: 峰值在线
+  products:
+    displayName: 讲解产品
+  formula.achieve:
+    displayName: 达成率 %
+  formula.gmv_per_hour:
+    displayName: 每小时 GMV
+views:
+  - type: table
+    name: 全部场次
+    order:
+      - file.name
+      - date
+      - minutes
+      - gmv
+      - target
+      - formula.achieve
+      - hit
+      - peak_online
+      - formula.gmv_per_hour
+      - products
+    sort:
+      - property: date
+        direction: ASC
+    summaries:
+      gmv: Average
+      minutes: Sum
+  - type: table
+    name: 达标的场次
+    filters:
+      and:
+        - 'hit == true'
+    order:
+      - file.name
+      - gmv
+      - target
+      - products
+  - type: cards
+    name: 卡片
+    order:
+      - file.name
+      - gmv
+      - products

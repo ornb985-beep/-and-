@@ -1,0 +1,29 @@
+filters:
+  and:
+    - file.inFolder("wiki/data/打法卡")
+properties:
+  card_no:
+    displayName: 编号
+  card_name:
+    displayName: 名称
+  origin:
+    displayName: 来源
+  level:
+    displayName: 适用层级
+  result:
+    displayName: 在主播A 复盘上
+views:
+  - type: table
+    name: 按命中结果分组
+    groupBy:
+      property: result
+      direction: ASC
+    order:
+      - card_no
+      - card_name
+      - origin
+      - level
+      - result
+    sort:
+      - property: card_no
+        direction: ASC

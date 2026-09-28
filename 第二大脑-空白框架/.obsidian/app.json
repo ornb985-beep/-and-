@@ -1,0 +1,11 @@
+{
+  "alwaysUpdateLinks": true,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "raw",
+  "attachmentFolderPath": "raw/附件",
+  "readableLineLength": true,
+  "showUnsupportedFiles": false,
+  "userIgnoreFilters": [
+    ".claude/"
+  ]
+}

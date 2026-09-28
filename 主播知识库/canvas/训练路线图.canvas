@@ -1,0 +1,214 @@
+{
+ "nodes": [
+  {
+   "id": "5a17c0de0007f99e",
+   "type": "file",
+   "file": "wiki/concepts/两道门筛选.md",
+   "x": 0,
+   "y": 0,
+   "width": 360,
+   "height": 220,
+   "color": "#D8BC80"
+  },
+  {
+   "id": "5a17c0de0008188d",
+   "type": "text",
+   "text": "**出关**：初筛 → 面谈 → 15 分钟试播 → 回家作业 → 锁定",
+   "x": 0,
+   "y": 260,
+   "width": 360,
+   "height": 130
+  },
+  {
+   "id": "5a17c0de0008566b",
+   "type": "file",
+   "file": "wiki/concepts/试岗三天.md",
+   "x": 420,
+   "y": 0,
+   "width": 360,
+   "height": 220
+  },
+  {
+   "id": "5a17c0de0008755a",
+   "type": "text",
+   "text": "**出关**：D1 产品与买点 · D2 讲品六步 · D3 搭配与录播",
+   "x": 420,
+   "y": 260,
+   "width": 360,
+   "height": 130
+  },
+  {
+   "id": "5a17c0de0008d227",
+   "type": "file",
+   "file": "wiki/concepts/留用判定.md",
+   "x": 840,
+   "y": 0,
+   "width": 360,
+   "height": 220
+  },
+  {
+   "id": "5a17c0de0008f116",
+   "type": "text",
+   "text": "**出关**：出关至少两项 · 不缺勤 · 同一问题不犯二次",
+   "x": 840,
+   "y": 260,
+   "width": 360,
+   "height": 130
+  },
+  {
+   "id": "5a17c0de00094de3",
+   "type": "file",
+   "file": "wiki/concepts/一轮循环.md",
+   "x": 1260,
+   "y": 0,
+   "width": 360,
+   "height": 220
+  },
+  {
+   "id": "5a17c0de00096cd2",
+   "type": "text",
+   "text": "**出关**：一轮 22 分钟内跑完，不看稿",
+   "x": 1260,
+   "y": 260,
+   "width": 360,
+   "height": 130
+  },
+  {
+   "id": "5a17c0de0009c99f",
+   "type": "file",
+   "file": "wiki/concepts/出师标准.md",
+   "x": 1680,
+   "y": 0,
+   "width": 360,
+   "height": 220,
+   "color": "#D8BC80"
+  },
+  {
+   "id": "5a17c0de0009e88e",
+   "type": "text",
+   "text": "**出关**：连续 2 场达到场均目标（目前 3,000 元）",
+   "x": 1680,
+   "y": 260,
+   "width": 360,
+   "height": 130
+  },
+  {
+   "id": "5a17c0de000a455b",
+   "type": "file",
+   "file": "wiki/concepts/强项放大弱项及格.md",
+   "x": 2100,
+   "y": 0,
+   "width": 360,
+   "height": 220
+  },
+  {
+   "id": "5a17c0de000a644a",
+   "type": "text",
+   "text": "**出关**：按自己的类型定打法，每周只练一件事",
+   "x": 2100,
+   "y": 260,
+   "width": 360,
+   "height": 130
+  },
+  {
+   "id": "5a17c0de000ac117",
+   "type": "file",
+   "file": "wiki/concepts/每日练习.md",
+   "x": 840,
+   "y": 480,
+   "width": 360,
+   "height": 200,
+   "color": "4"
+  }
+ ],
+ "edges": [
+  {
+   "id": "5a17c0de0008377c",
+   "fromNode": "5a17c0de0007f99e",
+   "fromSide": "bottom",
+   "toNode": "5a17c0de0008188d",
+   "toSide": "top",
+   "toEnd": "arrow"
+  },
+  {
+   "id": "5a17c0de00089449",
+   "fromNode": "5a17c0de0008566b",
+   "fromSide": "bottom",
+   "toNode": "5a17c0de0008755a",
+   "toSide": "top",
+   "toEnd": "arrow"
+  },
+  {
+   "id": "5a17c0de0008b338",
+   "fromNode": "5a17c0de0007f99e",
+   "fromSide": "right",
+   "toNode": "5a17c0de0008566b",
+   "toSide": "left",
+   "toEnd": "arrow"
+  },
+  {
+   "id": "5a17c0de00091005",
+   "fromNode": "5a17c0de0008d227",
+   "fromSide": "bottom",
+   "toNode": "5a17c0de0008f116",
+   "toSide": "top",
+   "toEnd": "arrow"
+  },
+  {
+   "id": "5a17c0de00092ef4",
+   "fromNode": "5a17c0de0008566b",
+   "fromSide": "right",
+   "toNode": "5a17c0de0008d227",
+   "toSide": "left",
+   "toEnd": "arrow"
+  },
+  {
+   "id": "5a17c0de00098bc1",
+   "fromNode": "5a17c0de00094de3",
+   "fromSide": "bottom",
+   "toNode": "5a17c0de00096cd2",
+   "toSide": "top",
+   "toEnd": "arrow"
+  },
+  {
+   "id": "5a17c0de0009aab0",
+   "fromNode": "5a17c0de0008d227",
+   "fromSide": "right",
+   "toNode": "5a17c0de00094de3",
+   "toSide": "left",
+   "toEnd": "arrow"
+  },
+  {
+   "id": "5a17c0de000a077d",
+   "fromNode": "5a17c0de0009c99f",
+   "fromSide": "bottom",
+   "toNode": "5a17c0de0009e88e",
+   "toSide": "top",
+   "toEnd": "arrow"
+  },
+  {
+   "id": "5a17c0de000a266c",
+   "fromNode": "5a17c0de00094de3",
+   "fromSide": "right",
+   "toNode": "5a17c0de0009c99f",
+   "toSide": "left",
+   "toEnd": "arrow"
+  },
+  {
+   "id": "5a17c0de000a8339",
+   "fromNode": "5a17c0de000a455b",
+   "fromSide": "bottom",
+   "toNode": "5a17c0de000a644a",
+   "toSide": "top",
+   "toEnd": "arrow"
+  },
+  {
+   "id": "5a17c0de000aa228",
+   "fromNode": "5a17c0de0009c99f",
+   "fromSide": "right",
+   "toNode": "5a17c0de000a455b",
+   "toSide": "left",
+   "toEnd": "arrow"
+  }
+ ]
+}

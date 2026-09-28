@@ -1,0 +1,290 @@
+{
+ "nodes": [
+  {
+   "id": "5a17c0de0004d558",
+   "type": "text",
+   "text": "## 五道门\n她心里依次要过的五道门。一道没开，她就走。",
+   "x": 0,
+   "y": -220,
+   "width": 700,
+   "height": 150
+  },
+  {
+   "id": "5a17c0de00043aad",
+   "type": "file",
+   "file": "wiki/concepts/需求门.md",
+   "x": 0,
+   "y": 0,
+   "width": 340,
+   "height": 220,
+   "color": "1"
+  },
+  {
+   "id": "5a17c0de0004599c",
+   "type": "file",
+   "file": "wiki/concepts/价值门.md",
+   "x": 380,
+   "y": 0,
+   "width": 340,
+   "height": 220,
+   "color": "2"
+  },
+  {
+   "id": "5a17c0de0004788b",
+   "type": "file",
+   "file": "wiki/concepts/福利门.md",
+   "x": 760,
+   "y": 0,
+   "width": 340,
+   "height": 220,
+   "color": "4"
+  },
+  {
+   "id": "5a17c0de0004977a",
+   "type": "file",
+   "file": "wiki/concepts/信任门.md",
+   "x": 1140,
+   "y": 0,
+   "width": 340,
+   "height": 220,
+   "color": "5"
+  },
+  {
+   "id": "5a17c0de0004b669",
+   "type": "file",
+   "file": "wiki/concepts/稀缺门.md",
+   "x": 1520,
+   "y": 0,
+   "width": 340,
+   "height": 220,
+   "color": "6"
+  },
+  {
+   "id": "5a17c0de00057003",
+   "type": "file",
+   "file": "wiki/concepts/痛点.md",
+   "x": 0,
+   "y": 330,
+   "width": 300,
+   "height": 200
+  },
+  {
+   "id": "5a17c0de00058ef2",
+   "type": "file",
+   "file": "wiki/concepts/卖点.md",
+   "x": 380,
+   "y": 330,
+   "width": 300,
+   "height": 200
+  },
+  {
+   "id": "5a17c0de0005ade1",
+   "type": "file",
+   "file": "wiki/concepts/场景.md",
+   "x": 440,
+   "y": 590,
+   "width": 300,
+   "height": 200
+  },
+  {
+   "id": "5a17c0de0005ccd0",
+   "type": "file",
+   "file": "wiki/concepts/讲品六步.md",
+   "x": 760,
+   "y": 330,
+   "width": 300,
+   "height": 200
+  },
+  {
+   "id": "5a17c0de0005ebbf",
+   "type": "file",
+   "file": "wiki/concepts/为什么买与为什么不买.md",
+   "x": 1140,
+   "y": 330,
+   "width": 300,
+   "height": 200
+  },
+  {
+   "id": "5a17c0de00060aae",
+   "type": "file",
+   "file": "wiki/concepts/两分钟逼一次单.md",
+   "x": 1520,
+   "y": 330,
+   "width": 300,
+   "height": 200
+  },
+  {
+   "id": "5a17c0de00075ef3",
+   "type": "text",
+   "text": "## 逼单四要素\n价值 · 比价 · 保障 · 稀缺",
+   "x": 0,
+   "y": 930,
+   "width": 340,
+   "height": 140
+  },
+  {
+   "id": "5a17c0de0006e337",
+   "type": "file",
+   "file": "wiki/concepts/价值锚定.md",
+   "x": 380,
+   "y": 900,
+   "width": 340,
+   "height": 200,
+   "color": "2"
+  },
+  {
+   "id": "5a17c0de00070226",
+   "type": "file",
+   "file": "wiki/concepts/比价.md",
+   "x": 760,
+   "y": 900,
+   "width": 340,
+   "height": 200,
+   "color": "4"
+  },
+  {
+   "id": "5a17c0de00072115",
+   "type": "file",
+   "file": "wiki/concepts/保障.md",
+   "x": 1140,
+   "y": 900,
+   "width": 340,
+   "height": 200,
+   "color": "5"
+  },
+  {
+   "id": "5a17c0de00074004",
+   "type": "file",
+   "file": "wiki/concepts/真实稀缺.md",
+   "x": 1520,
+   "y": 900,
+   "width": 340,
+   "height": 200,
+   "color": "6"
+  }
+ ],
+ "edges": [
+  {
+   "id": "5a17c0de0004f447",
+   "fromNode": "5a17c0de00043aad",
+   "fromSide": "right",
+   "toNode": "5a17c0de0004599c",
+   "toSide": "left",
+   "toEnd": "arrow"
+  },
+  {
+   "id": "5a17c0de00051336",
+   "fromNode": "5a17c0de0004599c",
+   "fromSide": "right",
+   "toNode": "5a17c0de0004788b",
+   "toSide": "left",
+   "toEnd": "arrow"
+  },
+  {
+   "id": "5a17c0de00053225",
+   "fromNode": "5a17c0de0004788b",
+   "fromSide": "right",
+   "toNode": "5a17c0de0004977a",
+   "toSide": "left",
+   "toEnd": "arrow"
+  },
+  {
+   "id": "5a17c0de00055114",
+   "fromNode": "5a17c0de0004977a",
+   "fromSide": "right",
+   "toNode": "5a17c0de0004b669",
+   "toSide": "left",
+   "toEnd": "arrow"
+  },
+  {
+   "id": "5a17c0de0006299d",
+   "fromNode": "5a17c0de00057003",
+   "fromSide": "top",
+   "toNode": "5a17c0de00043aad",
+   "toSide": "bottom",
+   "toEnd": "arrow",
+   "label": "开这道门"
+  },
+  {
+   "id": "5a17c0de0006488c",
+   "fromNode": "5a17c0de00058ef2",
+   "fromSide": "top",
+   "toNode": "5a17c0de0004599c",
+   "toSide": "bottom",
+   "toEnd": "arrow",
+   "label": "开这道门"
+  },
+  {
+   "id": "5a17c0de0006677b",
+   "fromNode": "5a17c0de0005ade1",
+   "fromSide": "top",
+   "toNode": "5a17c0de0004599c",
+   "toSide": "bottom",
+   "toEnd": "arrow",
+   "label": "开这道门"
+  },
+  {
+   "id": "5a17c0de0006866a",
+   "fromNode": "5a17c0de0005ccd0",
+   "fromSide": "top",
+   "toNode": "5a17c0de0004788b",
+   "toSide": "bottom",
+   "toEnd": "arrow",
+   "label": "开这道门"
+  },
+  {
+   "id": "5a17c0de0006a559",
+   "fromNode": "5a17c0de0005ebbf",
+   "fromSide": "top",
+   "toNode": "5a17c0de0004977a",
+   "toSide": "bottom",
+   "toEnd": "arrow",
+   "label": "开这道门"
+  },
+  {
+   "id": "5a17c0de0006c448",
+   "fromNode": "5a17c0de00060aae",
+   "fromSide": "top",
+   "toNode": "5a17c0de0004b669",
+   "toSide": "bottom",
+   "toEnd": "arrow",
+   "label": "开这道门"
+  },
+  {
+   "id": "5a17c0de00077de2",
+   "fromNode": "5a17c0de0006e337",
+   "fromSide": "top",
+   "toNode": "5a17c0de0004599c",
+   "toSide": "bottom",
+   "toEnd": "arrow",
+   "color": "2"
+  },
+  {
+   "id": "5a17c0de00079cd1",
+   "fromNode": "5a17c0de00070226",
+   "fromSide": "top",
+   "toNode": "5a17c0de0004788b",
+   "toSide": "bottom",
+   "toEnd": "arrow",
+   "color": "4"
+  },
+  {
+   "id": "5a17c0de0007bbc0",
+   "fromNode": "5a17c0de00072115",
+   "fromSide": "top",
+   "toNode": "5a17c0de0004977a",
+   "toSide": "bottom",
+   "toEnd": "arrow",
+   "color": "5"
+  },
+  {
+   "id": "5a17c0de0007daaf",
+   "fromNode": "5a17c0de00074004",
+   "fromSide": "top",
+   "toNode": "5a17c0de0004b669",
+   "toSide": "bottom",
+   "toEnd": "arrow",
+   "color": "6"
+  }
+ ]
+}

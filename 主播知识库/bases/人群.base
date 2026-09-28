@@ -1,0 +1,29 @@
+filters:
+  and:
+    - file.inFolder("wiki/data/人群")
+properties:
+  code:
+    displayName: 代号
+  official:
+    displayName: 官方人群
+  age:
+    displayName: 年龄
+  power:
+    displayName: 消费实力
+  aov:
+    displayName: 客单区间
+  risk:
+    displayName: 风险档
+views:
+  - type: table
+    name: 八大人群
+    groupBy:
+      property: risk
+      direction: DESC
+    order:
+      - code
+      - official
+      - age
+      - power
+      - aov
+      - risk
