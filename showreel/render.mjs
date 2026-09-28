@@ -52,7 +52,7 @@ async function sheet(reelId, times) {
   console.log('sheet', out, 'times', times.join(','));
 }
 
-async function video(reelId, out, fps, workers, audio) {
+async function video(reelId, out, fps, workers, audio, crf) {
   const browser = await chromium.launch();
   const probe = await openPage(browser);
   const meta = probe.list.find(r => r.id === reelId);
@@ -71,7 +71,7 @@ async function video(reelId, out, fps, workers, audio) {
     const part = path.join(tmp, `p${w}.mp4`);
     parts[w] = part;
     const ff = spawn(FFMPEG, ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(fps), '-c:v', 'mjpeg', '-i', '-',
-      '-c:v', 'libx264', '-preset', 'medium', '-crf', '17', '-pix_fmt', 'yuv420p', '-r', String(fps), part], { stdio: ['pipe', 'inherit', 'inherit'] });
+      '-c:v', 'libx264', '-preset', 'slow', '-crf', String(crf), '-tune', 'animation', '-pix_fmt', 'yuv420p', '-r', String(fps), part], { stdio: ['pipe', 'inherit', 'inherit'] });
     const done = new Promise((res, rej) => ff.on('close', c => (c === 0 ? res() : rej(new Error('ffmpeg ' + c)))));
     for (let i = a; i < b; i++) {
       await page.evaluate(tt => window.__render(tt), i / fps);
@@ -91,7 +91,8 @@ async function video(reelId, out, fps, workers, audio) {
   fs.writeFileSync(list, parts.filter(Boolean).map(p => `file '${p}'`).join('\n'));
   const args = ['-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', list];
   if (audio && fs.existsSync(audio)) args.push('-i', audio, '-map', '0:v', '-map', '1:a', '-c:a', 'aac', '-b:a', '192k', '-shortest');
-  args.push('-c:v', 'libx264', '-preset', 'slow', '-crf', '20', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', '-r', String(fps), out);
+  // parts are already at final quality: stream-copy the video, only the audio is encoded here
+  args.push('-c:v', 'copy', '-movflags', '+faststart', out);
   fs.mkdirSync(path.dirname(out), { recursive: true });
   execFileSync(FFMPEG, args, { stdio: 'inherit' });
   console.log(`video ${out} · ${total} frames · ${((Date.now() - t0) / 1000).toFixed(0)}s · ${(fs.statSync(out).size / 1048576).toFixed(1)} MB`);
@@ -100,5 +101,5 @@ async function video(reelId, out, fps, workers, audio) {
 const [cmd, reel, ...rest] = process.argv.slice(2);
 const opt = (k, d) => { const i = rest.indexOf(k); return i >= 0 ? rest[i + 1] : d; };
 if (cmd === 'sheet') await sheet(reel, (rest[0] || '').split(',').filter(Boolean).map(Number));
-else if (cmd === 'video') await video(reel, rest[0], +opt('--fps', 30), +opt('--workers', 4), opt('--audio', null));
+else if (cmd === 'video') await video(reel, rest[0], +opt('--fps', 30), +opt('--workers', 4), opt('--audio', null), +opt('--crf', 21));
 else console.log('usage: render.mjs sheet <reel> [times] | video <reel> <out.mp4> [--fps 30] [--workers 4] [--audio f]');

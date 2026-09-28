@@ -1,0 +1,819 @@
+[
+ {
+  "id": "full",
+  "label": "完整版",
+  "dur": 202,
+  "audio": "audio/reel-full.mp3",
+  "chapters": [
+   {
+    "title": "市场",
+    "start": 12
+   },
+   {
+    "title": "三次失败",
+    "start": 28
+   },
+   {
+    "title": "底层方程",
+    "start": 54
+   },
+   {
+    "title": "五道门",
+    "start": 70
+   },
+   {
+    "title": "讲品六步",
+    "start": 88
+   },
+   {
+    "title": "节奏与逼单",
+    "start": 108
+   },
+   {
+    "title": "数据",
+    "start": 128
+   },
+   {
+    "title": "你的播法",
+    "start": 144
+   },
+   {
+    "title": "拆解头部",
+    "start": 158
+   },
+   {
+    "title": "经济价值",
+    "start": 174
+   }
+  ]
+ },
+ {
+  "id": "investor",
+  "label": "投资人版",
+  "dur": 96,
+  "audio": "audio/reel-investor.mp3",
+  "chapters": [
+   {
+    "title": "市场",
+    "start": 7
+   },
+   {
+    "title": "真实数据",
+    "start": 23
+   },
+   {
+    "title": "底层方程",
+    "start": 32
+   },
+   {
+    "title": "七层体系",
+    "start": 48
+   },
+   {
+    "title": "经济价值",
+    "start": 58
+   },
+   {
+    "title": "为什么能复制",
+    "start": 76
+   }
+  ]
+ },
+ {
+  "id": "teaser",
+  "label": "15 秒版",
+  "dur": 15,
+  "audio": "audio/reel-teaser.mp3",
+  "chapters": []
+ },
+ {
+  "id": "l0",
+  "label": "第 0 课 · 为什么",
+  "dur": 52.5,
+  "audio": "audio/lesson-0.mp3",
+  "chapters": [
+   {
+    "title": "开场",
+    "start": 0
+   },
+   {
+    "title": "为什么",
+    "start": 6
+   },
+   {
+    "title": "为什么",
+    "start": 15
+   },
+   {
+    "title": "打法卡",
+    "start": 25
+   },
+   {
+    "title": "要点",
+    "start": 33.5
+   },
+   {
+    "title": "出关",
+    "start": 42.5
+   },
+   {
+    "title": "下一课",
+    "start": 48.5
+   }
+  ],
+  "beats": [
+   {
+    "type": "title",
+    "start": 0,
+    "dur": 6
+   },
+   {
+    "type": "why",
+    "start": 6,
+    "dur": 9
+   },
+   {
+    "type": "why",
+    "start": 15,
+    "dur": 10
+   },
+   {
+    "type": "cards",
+    "start": 25,
+    "dur": 8.5
+   },
+   {
+    "type": "points",
+    "start": 33.5,
+    "dur": 9
+   },
+   {
+    "type": "check",
+    "start": 42.5,
+    "dur": 6
+   },
+   {
+    "type": "next",
+    "start": 48.5,
+    "dur": 4
+   }
+  ]
+ },
+ {
+  "id": "l1",
+  "label": "第 1 课 · 底层方程",
+  "dur": 59,
+  "audio": "audio/lesson-1.mp3",
+  "chapters": [
+   {
+    "title": "开场",
+    "start": 0
+   },
+   {
+    "title": "两个字",
+    "start": 6
+   },
+   {
+    "title": "恒等式",
+    "start": 13.5
+   },
+   {
+    "title": "对照",
+    "start": 22.5
+   },
+   {
+    "title": "一笔账",
+    "start": 32
+   },
+   {
+    "title": "练习",
+    "start": 42
+   },
+   {
+    "title": "出关",
+    "start": 49
+   },
+   {
+    "title": "下一课",
+    "start": 55
+   }
+  ],
+  "beats": [
+   {
+    "type": "title",
+    "start": 0,
+    "dur": 6
+   },
+   {
+    "type": "words",
+    "start": 6,
+    "dur": 7.5
+   },
+   {
+    "type": "equation",
+    "start": 13.5,
+    "dur": 9
+   },
+   {
+    "type": "table",
+    "start": 22.5,
+    "dur": 9.5
+   },
+   {
+    "type": "ledger",
+    "start": 32,
+    "dur": 10
+   },
+   {
+    "type": "drill",
+    "start": 42,
+    "dur": 7
+   },
+   {
+    "type": "check",
+    "start": 49,
+    "dur": 6
+   },
+   {
+    "type": "next",
+    "start": 55,
+    "dur": 4
+   }
+  ]
+ },
+ {
+  "id": "l2",
+  "label": "第 2 课 · 五道门",
+  "dur": 58,
+  "audio": "audio/lesson-2.mp3",
+  "chapters": [
+   {
+    "title": "开场",
+    "start": 0
+   },
+   {
+    "title": "五道门",
+    "start": 6
+   },
+   {
+    "title": "对照",
+    "start": 21
+   },
+   {
+    "title": "要点",
+    "start": 31.5
+   },
+   {
+    "title": "练习",
+    "start": 41
+   },
+   {
+    "title": "出关",
+    "start": 48
+   },
+   {
+    "title": "下一课",
+    "start": 54
+   }
+  ],
+  "beats": [
+   {
+    "type": "title",
+    "start": 0,
+    "dur": 6
+   },
+   {
+    "type": "gates",
+    "start": 6,
+    "dur": 15
+   },
+   {
+    "type": "table",
+    "start": 21,
+    "dur": 10.5
+   },
+   {
+    "type": "points",
+    "start": 31.5,
+    "dur": 9.5
+   },
+   {
+    "type": "drill",
+    "start": 41,
+    "dur": 7
+   },
+   {
+    "type": "check",
+    "start": 48,
+    "dur": 6
+   },
+   {
+    "type": "next",
+    "start": 54,
+    "dur": 4
+   }
+  ]
+ },
+ {
+  "id": "l3",
+  "label": "第 3 课 · 讲品六步",
+  "dur": 57,
+  "audio": "audio/lesson-3.mp3",
+  "chapters": [
+   {
+    "title": "开场",
+    "start": 0
+   },
+   {
+    "title": "六步",
+    "start": 6
+   },
+   {
+    "title": "要点",
+    "start": 21
+   },
+   {
+    "title": "对比",
+    "start": 31
+   },
+   {
+    "title": "练习",
+    "start": 40
+   },
+   {
+    "title": "出关",
+    "start": 47
+   },
+   {
+    "title": "下一课",
+    "start": 53
+   }
+  ],
+  "beats": [
+   {
+    "type": "title",
+    "start": 0,
+    "dur": 6
+   },
+   {
+    "type": "gem6",
+    "start": 6,
+    "dur": 15
+   },
+   {
+    "type": "points",
+    "start": 21,
+    "dur": 10
+   },
+   {
+    "type": "two",
+    "start": 31,
+    "dur": 9
+   },
+   {
+    "type": "drill",
+    "start": 40,
+    "dur": 7
+   },
+   {
+    "type": "check",
+    "start": 47,
+    "dur": 6
+   },
+   {
+    "type": "next",
+    "start": 53,
+    "dur": 4
+   }
+  ]
+ },
+ {
+  "id": "l4",
+  "label": "第 4 课 · 逼单四要素",
+  "dur": 54.5,
+  "audio": "audio/lesson-4.mp3",
+  "chapters": [
+   {
+    "title": "开场",
+    "start": 0
+   },
+   {
+    "title": "四要素",
+    "start": 6
+   },
+   {
+    "title": "示范",
+    "start": 17
+   },
+   {
+    "title": "两分钟",
+    "start": 28
+   },
+   {
+    "title": "对比",
+    "start": 36
+   },
+   {
+    "title": "出关",
+    "start": 44.5
+   },
+   {
+    "title": "下一课",
+    "start": 50.5
+   }
+  ],
+  "beats": [
+   {
+    "type": "title",
+    "start": 0,
+    "dur": 6
+   },
+   {
+    "type": "four",
+    "start": 6,
+    "dur": 11
+   },
+   {
+    "type": "script",
+    "start": 17,
+    "dur": 11
+   },
+   {
+    "type": "ring",
+    "start": 28,
+    "dur": 8
+   },
+   {
+    "type": "two",
+    "start": 36,
+    "dur": 8.5
+   },
+   {
+    "type": "check",
+    "start": 44.5,
+    "dur": 6
+   },
+   {
+    "type": "next",
+    "start": 50.5,
+    "dur": 4
+   }
+  ]
+ },
+ {
+  "id": "l5",
+  "label": "第 5 课 · 节奏",
+  "dur": 55,
+  "audio": "audio/lesson-5.mp3",
+  "chapters": [
+   {
+    "title": "开场",
+    "start": 0
+   },
+   {
+    "title": "憋单框架",
+    "start": 6
+   },
+   {
+    "title": "一轮循环",
+    "start": 13.5
+   },
+   {
+    "title": "对照",
+    "start": 27.5
+   },
+   {
+    "title": "要点",
+    "start": 37.5
+   },
+   {
+    "title": "出关",
+    "start": 45
+   },
+   {
+    "title": "下一课",
+    "start": 51
+   }
+  ],
+  "beats": [
+   {
+    "type": "title",
+    "start": 0,
+    "dur": 6
+   },
+   {
+    "type": "flow",
+    "start": 6,
+    "dur": 7.5
+   },
+   {
+    "type": "rhythm",
+    "start": 13.5,
+    "dur": 14
+   },
+   {
+    "type": "table",
+    "start": 27.5,
+    "dur": 10
+   },
+   {
+    "type": "points",
+    "start": 37.5,
+    "dur": 7.5
+   },
+   {
+    "type": "check",
+    "start": 45,
+    "dur": 6
+   },
+   {
+    "type": "next",
+    "start": 51,
+    "dur": 4
+   }
+  ]
+ },
+ {
+  "id": "l6",
+  "label": "第 6 课 · 数据",
+  "dur": 54,
+  "audio": "audio/lesson-6.mp3",
+  "chapters": [
+   {
+    "title": "开场",
+    "start": 0
+   },
+   {
+    "title": "五个数",
+    "start": 6
+   },
+   {
+    "title": "对照",
+    "start": 18
+   },
+   {
+    "title": "看趋势",
+    "start": 27
+   },
+   {
+    "title": "练习",
+    "start": 37
+   },
+   {
+    "title": "出关",
+    "start": 44
+   },
+   {
+    "title": "下一课",
+    "start": 50
+   }
+  ],
+  "beats": [
+   {
+    "type": "title",
+    "start": 0,
+    "dur": 6
+   },
+   {
+    "type": "data5",
+    "start": 6,
+    "dur": 12
+   },
+   {
+    "type": "table",
+    "start": 18,
+    "dur": 9
+   },
+   {
+    "type": "control",
+    "start": 27,
+    "dur": 10
+   },
+   {
+    "type": "drill",
+    "start": 37,
+    "dur": 7
+   },
+   {
+    "type": "check",
+    "start": 44,
+    "dur": 6
+   },
+   {
+    "type": "next",
+    "start": 50,
+    "dur": 4
+   }
+  ]
+ },
+ {
+  "id": "l7",
+  "label": "第 7 课 · 你的播法",
+  "dur": 52,
+  "audio": "audio/lesson-7.mp3",
+  "chapters": [
+   {
+    "title": "开场",
+    "start": 0
+   },
+   {
+    "title": "定位",
+    "start": 6
+   },
+   {
+    "title": "对照",
+    "start": 17
+   },
+   {
+    "title": "讲人话",
+    "start": 27
+   },
+   {
+    "title": "练习",
+    "start": 35
+   },
+   {
+    "title": "出关",
+    "start": 42
+   },
+   {
+    "title": "下一课",
+    "start": 48
+   }
+  ],
+  "beats": [
+   {
+    "type": "title",
+    "start": 0,
+    "dur": 6
+   },
+   {
+    "type": "compass",
+    "start": 6,
+    "dur": 11
+   },
+   {
+    "type": "table",
+    "start": 17,
+    "dur": 10
+   },
+   {
+    "type": "quote",
+    "start": 27,
+    "dur": 8
+   },
+   {
+    "type": "drill",
+    "start": 35,
+    "dur": 7
+   },
+   {
+    "type": "check",
+    "start": 42,
+    "dur": 6
+   },
+   {
+    "type": "next",
+    "start": 48,
+    "dur": 4
+   }
+  ]
+ },
+ {
+  "id": "l8",
+  "label": "第 8 课 · 拆解头部",
+  "dur": 51.5,
+  "audio": "audio/lesson-8.mp3",
+  "chapters": [
+   {
+    "title": "开场",
+    "start": 0
+   },
+   {
+    "title": "对比",
+    "start": 6
+   },
+   {
+    "title": "拆解七步",
+    "start": 15
+   },
+   {
+    "title": "打法卡",
+    "start": 24
+   },
+   {
+    "title": "要点",
+    "start": 32.5
+   },
+   {
+    "title": "出关",
+    "start": 41.5
+   },
+   {
+    "title": "下一课",
+    "start": 47.5
+   }
+  ],
+  "beats": [
+   {
+    "type": "title",
+    "start": 0,
+    "dur": 6
+   },
+   {
+    "type": "two",
+    "start": 6,
+    "dur": 9
+   },
+   {
+    "type": "decode7",
+    "start": 15,
+    "dur": 9
+   },
+   {
+    "type": "cards",
+    "start": 24,
+    "dur": 8.5
+   },
+   {
+    "type": "points",
+    "start": 32.5,
+    "dur": 9
+   },
+   {
+    "type": "check",
+    "start": 41.5,
+    "dur": 6
+   },
+   {
+    "type": "next",
+    "start": 47.5,
+    "dur": 4
+   }
+  ]
+ },
+ {
+  "id": "l9",
+  "label": "第 9 课 · 合规与出师",
+  "dur": 52,
+  "audio": "audio/lesson-9.mp3",
+  "chapters": [
+   {
+    "title": "开场",
+    "start": 0
+   },
+   {
+    "title": "红线",
+    "start": 6
+   },
+   {
+    "title": "路线",
+    "start": 17
+   },
+   {
+    "title": "要点",
+    "start": 30
+   },
+   {
+    "title": "出关",
+    "start": 39
+   },
+   {
+    "title": "收尾",
+    "start": 45
+   }
+  ],
+  "beats": [
+   {
+    "type": "title",
+    "start": 0,
+    "dur": 6
+   },
+   {
+    "type": "compliance",
+    "start": 6,
+    "dur": 11
+   },
+   {
+    "type": "roadmap",
+    "start": 17,
+    "dur": 13
+   },
+   {
+    "type": "points",
+    "start": 30,
+    "dur": 9
+   },
+   {
+    "type": "check",
+    "start": 39,
+    "dur": 6
+   },
+   {
+    "type": "finale",
+    "start": 45,
+    "dur": 7
+   }
+  ]
+ }
+]
